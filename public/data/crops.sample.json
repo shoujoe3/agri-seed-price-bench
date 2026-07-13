@@ -1,0 +1,11 @@
+{
+  "_comment": "Optional pattern for loading data at runtime. See README > 'Adding datasets'. Anything in /public is served as-is at <site>/data/crops.sample.json",
+  "crops": {
+    "wa_maize": {
+      "region": "WA", "name": "Maize", "icon": "🌽", "base": 280,
+      "bHist": 0.45, "bFx": 0.30, "bInf": 0.60, "bGdp": 0.15,
+      "bWx": 0.95, "kTrans": 0.34, "sAmp": 0.18, "harv": 9, "vol": 0.11,
+      "source": "Illustrative — replace with estimated elasticities when data is available"
+    }
+  }
+}
