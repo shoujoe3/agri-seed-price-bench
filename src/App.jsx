@@ -123,6 +123,7 @@ export default function App() {
   const [mktIdx, setMktIdx] = useState(0);
   const [cropId, setCropId] = useState("wa_maize");
   const [focus, setFocus] = useState("rain");
+  const [unit, setUnit] = useState("t");            // "t" = per tonne, "kg" = per kg
   const [p, setP] = useState({
     hist:.05, fx:.15, inf:.12, dem:1.0, rain:0, temp:.5, fuel:1.0, month:6,
   });
@@ -166,6 +167,14 @@ export default function App() {
     return out;
   }, [crop, remoteness, p, focus, fdef]);
   const curPrice = Math.round(r.final);
+
+  /* ---- unit-aware display (per tonne / per kg) ---- */
+  const div = unit === "kg" ? 1000 : 1;
+  const unitLbl = unit === "kg" ? "/kg" : "/tonne";
+  const smart = (n) =>                                     // adaptive decimals for small per-kg values
+    n >= 100 ? Math.round(n).toLocaleString("en-US") : n >= 10 ? n.toFixed(1) : n.toFixed(2);
+  const money = (n) => "$" + smart(n / div);               // USD in the selected unit
+  const local = (n) => country.cur + smart((n * country.fx) / div); // local currency in the selected unit
 
   const availCrops = Object.entries(CROPS).filter(([, c]) => c.region === region);
   const availCountries = Object.entries(COUNTRIES).filter(([, c]) => c.region === region);
@@ -238,11 +247,18 @@ export default function App() {
           {/* ============ CENTER: readout + waterfall ============ */}
           <main className="stage">
             <div className="readout">
-              <div className="ro-crop">{crop.icon} {crop.name} · {country.name} · {country.markets[mktIdx][0]}</div>
-              <div className="ro-price">{usd(curPrice)}<span className="ro-unit">/tonne</span></div>
+              <div className="ro-top">
+                <div className="ro-crop">{crop.icon} {crop.name} · {country.name} · {country.markets[mktIdx][0]}</div>
+                <div className="unitseg">
+                  {[["t","per tonne"],["kg","per kg"]].map(([k,l])=>(
+                    <button key={k} className={unit===k?"useg on":"useg"} onClick={()=>setUnit(k)}>{l}</button>
+                  ))}
+                </div>
+              </div>
+              <div className="ro-price">{money(curPrice)}<span className="ro-unit">{unitLbl}</span></div>
               <div className="ro-local">
-                ≈ {country.cur}{fmt0(curPrice*country.fx)} /t
-                <span className="ro-band">typical monthly range {country.cur}{fmt0(curPrice*country.fx*(1-band))}–{fmt0(curPrice*country.fx*(1+band))}</span>
+                ≈ {local(curPrice)} {unitLbl}
+                <span className="ro-band">typical monthly range {local(curPrice*(1-band))} – {local(curPrice*(1+band))}</span>
               </div>
             </div>
 
@@ -250,7 +266,7 @@ export default function App() {
             <div className="ledger">
               <div className="ledger-head">
                 <span>How the price is assembled</span>
-                <span className="dim">running value, USD/t</span>
+                <span className="dim">running value, USD{unitLbl}</span>
               </div>
               {steps.map((s,i)=>{
                 const up = s.mlt!=null && s.mlt>1;
@@ -262,12 +278,12 @@ export default function App() {
                     </div>
                     <div className={"lmult "+cls}>{s.mlt==null?"base":mult(s.mlt)}</div>
                     <div className="lbar"><span className={"bar "+cls} style={{width:`${(s.val/wfMax)*100}%`}} /></div>
-                    <div className="lval">{usd(s.val)}</div>
+                    <div className="lval">{money(s.val)}</div>
                   </div>
                 );
               })}
               <div className="formula">
-                P = {crop.base} × {r.mHist.toFixed(2)} × {r.mEcon.toFixed(2)} × {r.mWx.toFixed(2)} × {r.mSea.toFixed(2)} × {r.mTrans.toFixed(2)} = <b>{usd(curPrice)}/t</b>
+                P = {money(crop.base)} × {r.mHist.toFixed(2)} × {r.mEcon.toFixed(2)} × {r.mWx.toFixed(2)} × {r.mSea.toFixed(2)} × {r.mTrans.toFixed(2)} = <b>{money(curPrice)}{unitLbl}</b>
               </div>
               <div className="wxnote">
                 Modelled yield deviation from weather: <b className={r.shock>=0?"gpos":"gneg"}>{pct(r.shock)}</b>
@@ -290,10 +306,10 @@ export default function App() {
                     <XAxis dataKey="x" tick={{fill:"#A5A08C",fontSize:11}} stroke="rgba(236,231,214,.15)"
                       tickFormatter={(v)=>sliderFmt(fdef.kind,v)} />
                     <YAxis tick={{fill:"#A5A08C",fontSize:11}} stroke="rgba(236,231,214,.15)"
-                      width={48} tickFormatter={(v)=>"$"+fmt0(v)} domain={["auto","auto"]}/>
+                      width={52} tickFormatter={(v)=>money(v)} domain={["auto","auto"]}/>
                     <Tooltip contentStyle={{background:"#1C1F14",border:"1px solid rgba(236,231,214,.15)",borderRadius:8,color:"#ECE7D6",fontSize:12}}
                       labelFormatter={(v)=>fdef.label+": "+sliderFmt(fdef.kind,v)}
-                      formatter={(v)=>[usd(v),"Price/t"]}/>
+                      formatter={(v)=>[money(v),"Price"+unitLbl]}/>
                     <ReferenceLine x={p[focus]} stroke="#E0A72C" strokeDasharray="3 3"/>
                     <Line type="monotone" dataKey="price" stroke="#E0A72C" strokeWidth={2.4} dot={false}/>
                     <ReferenceDot x={p[focus]} y={curPrice} r={4} fill="#E0A72C" stroke="#14160E"/>
@@ -505,6 +521,11 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spa
 /* center */
 .stage{display:flex;flex-direction:column;gap:16px;min-width:0}
 .readout{background:linear-gradient(180deg,var(--soil3),var(--soil2));border:1px solid var(--line);border-radius:16px;padding:20px 22px}
+.ro-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.unitseg{display:flex;gap:4px;background:var(--soil);border:1px solid var(--line);border-radius:8px;padding:3px;flex-shrink:0}
+.useg{background:none;border:0;color:var(--dim);font:600 11px 'Inter';padding:5px 10px;border-radius:6px;cursor:pointer}
+.useg.on{background:var(--grain);color:#231a05}
+.useg:hover:not(.on){color:var(--bone)}
 .ro-crop{color:var(--dim);font:600 13px 'Inter'}
 .ro-price{font-family:'Bricolage Grotesque';font-weight:800;font-size:56px;line-height:1.02;margin-top:6px;color:var(--grain);letter-spacing:-.03em}
 .ro-unit{font-size:20px;color:var(--dim);margin-left:6px;font-weight:600}
