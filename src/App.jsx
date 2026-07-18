@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import {
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   ResponsiveContainer, ReferenceLine, ReferenceDot,
@@ -130,8 +130,52 @@ export default function App() {
 
   const country = COUNTRIES[countryId];
   const crop = CROPS[cropId];
-  const remoteness = country.markets[mktIdx][1];
-  const r = useMemo(() => computePrice(crop, remoteness, p), [crop, remoteness, p]);
+
+  /* ---- observed dataset: Nigeria extension-service weekly survey (public/data) ---- */
+  const [survey, setSurvey] = useState(null);
+  useEffect(() => {
+    const base = (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.BASE_URL) || "/";
+    fetch(`${base}data/ng-extension-prices.json`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((d) => d && d.series && setSurvey(d))
+      .catch(() => {});                      // no file / offline -> illustrative mode
+  }, []);
+
+  /* market list: for Nigeria, append the surveyed markets to the built-in ones */
+  const marketArr = useMemo(() => {
+    const builtin = country.markets.map(([n, rm]) => [n, rm, null]);
+    if (countryId === "NG" && survey)
+      return [
+        ...builtin,
+        ...Object.entries(survey.markets).map(([key, m]) => [m.name, m.remoteness, key]),
+      ];
+    return builtin;
+  }, [countryId, country, survey]);
+
+  const mkt = marketArr[Math.min(mktIdx, marketArr.length - 1)];
+  const remoteness = mkt[1];
+  const mktKey = mkt[2];
+
+  /* anchored price: use the LATEST survey observation for this crop at this market */
+  const obsRec = (mktKey && survey && survey.series[cropId]) || null;
+  const obsSeries = useMemo(() => {
+    if (!obsRec) return [];
+    return Object.entries(obsRec.obs)
+      .filter(([, row]) => typeof row[mktKey] === "number")
+      .map(([date, row]) => ({ date, ngn: row[mktKey] }));
+  }, [obsRec, mktKey]);
+  const lastObs = obsSeries.length ? obsSeries[obsSeries.length - 1] : null;
+  const obsNGN = lastObs ? lastObs.ngn : null;
+  const anchorDate = lastObs ? lastObs.date : null;
+  const obsUsdT = obsNGN != null ? (obsNGN / obsRec.unitKg) * 1000 / country.fx : null;
+  const anchored = obsUsdT != null;
+  const fmtD = (iso) => { const [, m, d] = iso.split("-"); return parseInt(d) + " " + MONTHS[parseInt(m) - 1]; };
+
+  /* anchor-date reference conditions: sliders then read as "change since the latest survey" */
+  const anchorMonth = anchorDate ? parseInt(anchorDate.slice(5, 7), 10) - 1 : 11;
+  const REF_SURVEY = { hist:0, fx:0, inf:0, dem:1, rain:0, temp:0, fuel:1, month:anchorMonth };
+  const r  = useMemo(() => computePrice(crop, remoteness, p), [crop, remoteness, p]);
+  const rf = useMemo(() => computePrice(crop, remoteness, REF_SURVEY), [crop, remoteness, anchorMonth]);
 
   const switchRegion = (rg) => {
     setRegion(rg);
@@ -144,16 +188,28 @@ export default function App() {
 
   const set = (k, v) => setP((s) => ({ ...s, [k]: v }));
 
-  /* waterfall steps */
-  const steps = [
-    { label:"Base wholesale",   mlt:null,     val:crop.base },
-    { label:"Price momentum",   mlt:r.mHist,  val:crop.base*r.mHist },
-    { label:"Economic factors", mlt:r.mEcon,  val:crop.base*r.mHist*r.mEcon },
-    { label:"Weather / yield",  mlt:r.mWx,    val:crop.base*r.mHist*r.mEcon*r.mWx },
-    { label:"Seasonality",      mlt:r.mSea,   val:r.core },
-    { label:"Transport margin", mlt:r.mTrans, val:r.final },
-  ];
+  /* waterfall steps — anchored mode shows the surveyed base and factor RATIOS vs survey conditions */
+  const steps = anchored
+    ? (() => {
+        const f = [r.mHist/rf.mHist, r.mEcon/rf.mEcon, r.mWx/rf.mWx, r.mSea/rf.mSea, r.mTrans/rf.mTrans];
+        let run = obsUsdT;
+        const labels = ["Price momentum","Economic factors","Weather / yield","Seasonality","Transport margin"];
+        const rows = [{ label:"Surveyed base · "+fmtD(anchorDate), mlt:null, val:obsUsdT }];
+        f.forEach((m,i)=>{ run *= m; rows.push({ label:labels[i], mlt:m, val:run }); });
+        return rows;
+      })()
+    : [
+        { label:"Base wholesale",   mlt:null,     val:crop.base },
+        { label:"Price momentum",   mlt:r.mHist,  val:crop.base*r.mHist },
+        { label:"Economic factors", mlt:r.mEcon,  val:crop.base*r.mHist*r.mEcon },
+        { label:"Weather / yield",  mlt:r.mWx,    val:crop.base*r.mHist*r.mEcon*r.mWx },
+        { label:"Seasonality",      mlt:r.mSea,   val:r.core },
+        { label:"Transport margin", mlt:r.mTrans, val:r.final },
+      ];
   const wfMax = Math.max(...steps.map((s) => s.val)) * 1.02;
+
+  /* scale converts model output to anchored output (base cancels in the ratio) */
+  const scale = anchored ? obsUsdT / rf.final : 1;
 
   /* sensitivity sweep */
   const fdef = SLIDERS.find((s) => s.key === focus);
@@ -162,11 +218,11 @@ export default function App() {
     for (let i = 0; i <= N; i++) {
       const v = fdef.min + ((fdef.max - fdef.min) * i) / N;
       const pr = computePrice(crop, remoteness, { ...p, [focus]: v });
-      out.push({ x: v, price: Math.round(pr.final) });
+      out.push({ x: v, price: Math.round(pr.final * scale) });
     }
     return out;
-  }, [crop, remoteness, p, focus, fdef]);
-  const curPrice = Math.round(r.final);
+  }, [crop, remoteness, p, focus, fdef, scale]);
+  const curPrice = Math.round(r.final * scale);
 
   /* ---- unit-aware display (per tonne / per kg) ---- */
   const div = unit === "kg" ? 1000 : 1;
@@ -219,9 +275,9 @@ export default function App() {
 
             <label className="flabel">Market · <span className="dim">remoteness from port</span></label>
             <div className="mkts">
-              {country.markets.map(([nm,rm],i)=>(
+              {marketArr.map(([nm,rm,key],i)=>(
                 <button key={nm} className={mktIdx===i?"mkt on":"mkt"} onClick={()=>setMktIdx(i)}>
-                  <span>{nm}</span>
+                  <span>{nm}{key && <em className="stag">survey</em>}</span>
                   <span className="rmbar"><span style={{width:`${rm*100}%`}} /></span>
                 </button>
               ))}
@@ -248,7 +304,7 @@ export default function App() {
           <main className="stage">
             <div className="readout">
               <div className="ro-top">
-                <div className="ro-crop">{crop.icon} {crop.name} · {country.name} · {country.markets[mktIdx][0]}</div>
+                <div className="ro-crop">{crop.icon} {crop.name} · {country.name} · {mkt[0]}</div>
                 <div className="unitseg">
                   {[["t","per tonne"],["kg","per kg"]].map(([k,l])=>(
                     <button key={k} className={unit===k?"useg on":"useg"} onClick={()=>setUnit(k)}>{l}</button>
@@ -260,6 +316,12 @@ export default function App() {
                 ≈ {local(curPrice)} {unitLbl}
                 <span className="ro-band">typical monthly range {local(curPrice*(1-band))} – {local(curPrice*(1+band))}</span>
               </div>
+              {anchored && (
+                <div className="anchor">
+                  <span className="adot"/> Anchored to extension survey · {obsRec.label} · {country.cur}{fmt0(obsNGN)}/{obsRec.unitKg}kg bag · latest of {obsSeries.length} weekly observations ({fmtD(obsSeries[0].date)} → {fmtD(anchorDate)}).
+                  Sliders read as <b>change since {fmtD(anchorDate)}</b>.
+                </div>
+              )}
             </div>
 
             {/* signature: the price-assembly ledger */}
@@ -283,13 +345,36 @@ export default function App() {
                 );
               })}
               <div className="formula">
-                P = {money(crop.base)} × {r.mHist.toFixed(2)} × {r.mEcon.toFixed(2)} × {r.mWx.toFixed(2)} × {r.mSea.toFixed(2)} × {r.mTrans.toFixed(2)} = <b>{money(curPrice)}{unitLbl}</b>
+                P = {money(steps[0].val)}{steps.slice(1).map((s)=>" × "+s.mlt.toFixed(2)).join("")} = <b>{money(curPrice)}{unitLbl}</b>
               </div>
               <div className="wxnote">
                 Modelled yield deviation from weather: <b className={r.shock>=0?"gpos":"gneg"}>{pct(r.shock)}</b>
                 {r.shock>=0 ? " (favourable → downward price pressure)" : " (shortfall → upward price pressure)"}
               </div>
             </div>
+
+            {/* observed weekly price history (real survey data) */}
+            {anchored && obsSeries.length > 1 && (
+              <div className="sens">
+                <div className="sens-head">
+                  <span>Observed market prices · {mkt[0]}</span>
+                  <span className="dim" style={{textTransform:"none",letterSpacing:0,fontWeight:500}}>weekly extension survey · USD{unitLbl}</span>
+                </div>
+                <div className="chartbox">
+                  <ResponsiveContainer width="100%" height={190}>
+                    <LineChart data={obsSeries.map(o=>({d:fmtD(o.date), usd:(o.ngn/obsRec.unitKg)*1000/country.fx, ngn:o.ngn}))} margin={{top:8,right:14,left:2,bottom:4}}>
+                      <CartesianGrid stroke="rgba(236,231,214,.08)" vertical={false}/>
+                      <XAxis dataKey="d" tick={{fill:"#A5A08C",fontSize:11}} stroke="rgba(236,231,214,.15)"/>
+                      <YAxis tick={{fill:"#A5A08C",fontSize:11}} stroke="rgba(236,231,214,.15)"
+                        width={52} tickFormatter={(v)=>money(v)} domain={["auto","auto"]}/>
+                      <Tooltip contentStyle={{background:"#1C1F14",border:"1px solid rgba(236,231,214,.15)",borderRadius:8,color:"#ECE7D6",fontSize:12}}
+                        formatter={(v,_n,pl)=>[money(v)+" · "+country.cur+fmt0(pl.payload.ngn)+"/bag","Observed"]}/>
+                      <Line type="monotone" dataKey="usd" stroke="#8FB07A" strokeWidth={2.4} dot={{r:3,fill:"#8FB07A",strokeWidth:0}}/>
+                    </LineChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            )}
 
             {/* sensitivity */}
             <div className="sens">
@@ -338,8 +423,10 @@ export default function App() {
                 ))}
               </div>
             ))}
-            <button className="reset" onClick={()=>setP({hist:.05,fx:.15,inf:.12,dem:1.0,rain:0,temp:.5,fuel:1.0,month:6})}>
-              Reset drivers to baseline
+            <button className="reset" onClick={()=>setP(anchored
+              ? {hist:0,fx:0,inf:0,dem:1.0,rain:0,temp:0,fuel:1.0,month:anchorMonth}
+              : {hist:.05,fx:.15,inf:.12,dem:1.0,rain:0,temp:.5,fuel:1.0,month:6})}>
+              {anchored ? "Reset to survey conditions ("+fmtD(anchorDate)+")" : "Reset drivers to baseline"}
             </button>
           </aside>
         </div>
@@ -531,6 +618,10 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spa
 .ro-unit{font-size:20px;color:var(--dim);margin-left:6px;font-weight:600}
 .ro-local{font:500 14px 'IBM Plex Mono';color:var(--bone);margin-top:4px;display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline}
 .ro-band{color:var(--dim);font-size:12px}
+.anchor{margin-top:12px;padding:9px 12px;background:rgba(143,176,122,.10);border:1px solid rgba(143,176,122,.35);border-radius:9px;font:500 12px 'Inter';color:#C9D8BC;line-height:1.5}
+.anchor b{color:var(--sage)}
+.adot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sage);margin-right:7px;box-shadow:0 0 6px var(--sage)}
+.stag{font:600 9px 'Inter';font-style:normal;text-transform:uppercase;letter-spacing:.06em;color:var(--sage);border:1px solid rgba(143,176,122,.4);border-radius:4px;padding:1px 4px;margin-left:6px;vertical-align:middle}
 
 .ledger{background:var(--soil2);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
 .ledger-head{display:flex;justify-content:space-between;font:600 12px 'Inter';text-transform:uppercase;letter-spacing:.06em;color:var(--bone);margin-bottom:12px}

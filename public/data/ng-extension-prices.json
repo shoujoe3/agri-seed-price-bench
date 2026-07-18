@@ -1,0 +1,1631 @@
+{
+ "meta": {
+  "source": "Nigeria agricultural extension services weekly market survey: 'Agricultural commodity prices from some major markets across the North Western states in Nigeria' (Kaduna, Katsina, Kano, Zamfara). 22 Dec 2025 from photographed handwritten sheets; 5 Jan – 23 Feb 2026 from weekly Word reports.",
+  "schema": "v2-timeseries",
+  "currency": "NGN",
+  "dates": [
+   "2025-12-22",
+   "2026-01-05",
+   "2026-01-12",
+   "2026-01-19",
+   "2026-02-02",
+   "2026-02-09",
+   "2026-02-16",
+   "2026-02-23"
+  ],
+  "note": "Prices per bag as recorded at each market. 22 Dec values transcribed from photos (medium confidence); weekly values machine-extracted from the .docx reports (high confidence). The simulator anchors to the most recent observation for the selected crop and market."
+ },
+ "markets": {
+  "soba": {
+   "name": "Soba (Kaduna)",
+   "state": "Kaduna",
+   "remoteness": 0.6
+  },
+  "makarfi": {
+   "name": "Makarfi (Kaduna)",
+   "state": "Kaduna",
+   "remoteness": 0.62
+  },
+  "giwa": {
+   "name": "Giwa (Kaduna)",
+   "state": "Kaduna",
+   "remoteness": 0.6
+  },
+  "anchau": {
+   "name": "Anchau (Kaduna)",
+   "state": "Kaduna",
+   "remoteness": 0.65
+  },
+  "birningwari": {
+   "name": "Birnin Gwari (Kaduna)",
+   "state": "Kaduna",
+   "remoteness": 0.72
+  },
+  "dandume": {
+   "name": "Dandume (Katsina)",
+   "state": "Katsina",
+   "remoteness": 0.75
+  },
+  "dawanau": {
+   "name": "Dawanau (Kano)",
+   "state": "Kano",
+   "remoteness": 0.7
+  },
+  "sundu": {
+   "name": "Sundu (Kano)",
+   "state": "Kano",
+   "remoteness": 0.7
+  },
+  "shinkafi": {
+   "name": "Shinkafi (Zamfara)",
+   "state": "Zamfara",
+   "remoteness": 0.85
+  },
+  "tsafe": {
+   "name": "Tsafe (Zamfara)",
+   "state": "Zamfara",
+   "remoteness": 0.85
+  }
+ },
+ "series": {
+  "wa_maize": {
+   "label": "Masara — white maize",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 23000,
+     "makarfi": 21000,
+     "giwa": 21500,
+     "anchau": 20000,
+     "dandume": 18000,
+     "dawanau": 25000,
+     "sundu": 21000,
+     "shinkafi": 25500,
+     "tsafe": 25000
+    },
+    "2026-01-05": {
+     "soba": 24000,
+     "makarfi": 26000,
+     "giwa": 27000,
+     "anchau": 26600,
+     "dandume": 25000,
+     "dawanau": 28000,
+     "sundu": 23400,
+     "shinkafi": 26000,
+     "tsafe": 26000
+    },
+    "2026-01-12": {
+     "soba": 24000,
+     "makarfi": 26000,
+     "giwa": 23000,
+     "anchau": 26600,
+     "dandume": 25000,
+     "dawanau": 28000,
+     "sundu": 23400,
+     "shinkafi": 26000,
+     "tsafe": 26000
+    },
+    "2026-01-19": {
+     "soba": 24000,
+     "makarfi": 23000,
+     "giwa": 23800,
+     "anchau": 26600,
+     "dandume": 25000,
+     "dawanau": 28000,
+     "sundu": 23400,
+     "shinkafi": 26000,
+     "tsafe": 26000
+    },
+    "2026-02-02": {
+     "soba": 24500,
+     "makarfi": 23000,
+     "giwa": 24500,
+     "anchau": 25000,
+     "dandume": 25400,
+     "dawanau": 28000,
+     "sundu": 24000,
+     "shinkafi": 26000,
+     "tsafe": 26500
+    },
+    "2026-02-09": {
+     "soba": 27000,
+     "makarfi": 28000,
+     "giwa": 29000,
+     "anchau": 29000,
+     "dandume": 28500,
+     "dawanau": 32000,
+     "sundu": 28000,
+     "shinkafi": 31500,
+     "tsafe": 31500
+    },
+    "2026-02-16": {
+     "soba": 27000,
+     "makarfi": 28000,
+     "giwa": 29000,
+     "anchau": 29000,
+     "dandume": 28500,
+     "dawanau": 32000,
+     "sundu": 28000,
+     "shinkafi": 31500,
+     "tsafe": 31500,
+     "birningwari": 25000
+    },
+    "2026-02-23": {
+     "makarfi": 23000,
+     "giwa": 28000,
+     "anchau": 23000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 27000,
+     "shinkafi": 31500,
+     "tsafe": 31000,
+     "birningwari": 25000
+    }
+   }
+  },
+  "wa_rice": {
+   "label": "Shinkafa — rice paddy (unmilled)",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 27000,
+     "makarfi": 31000,
+     "giwa": 33000,
+     "anchau": 29000,
+     "dandume": 30000,
+     "dawanau": 35000,
+     "sundu": 34500,
+     "shinkafi": 38000,
+     "tsafe": 38000
+    },
+    "2026-01-05": {
+     "soba": 27000,
+     "makarfi": 31000,
+     "giwa": 33000,
+     "anchau": 29000,
+     "dandume": 30000,
+     "dawanau": 35000,
+     "sundu": 34500,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-01-12": {
+     "soba": 27000,
+     "makarfi": 31000,
+     "giwa": 33000,
+     "anchau": 29000,
+     "dandume": 30000,
+     "dawanau": 35000,
+     "sundu": 32500,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-01-19": {
+     "soba": 27000,
+     "makarfi": 31000,
+     "giwa": 33000,
+     "anchau": 29000,
+     "dandume": 30000,
+     "dawanau": 35000,
+     "sundu": 32500,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-02": {
+     "soba": 27000,
+     "makarfi": 31000,
+     "giwa": 33000,
+     "anchau": 29000,
+     "dandume": 30000,
+     "dawanau": 35000,
+     "sundu": 32500,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-09": {
+     "soba": 29000,
+     "makarfi": 31000,
+     "giwa": 33000,
+     "anchau": 29000,
+     "dandume": 30000,
+     "dawanau": 35000,
+     "sundu": 32500,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-16": {
+     "soba": 29000,
+     "makarfi": 31000,
+     "giwa": 33000,
+     "anchau": 29000,
+     "dandume": 30000,
+     "dawanau": 35000,
+     "sundu": 32500,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-23": {
+     "makarfi": 36000,
+     "giwa": 35000,
+     "anchau": 35000,
+     "dandume": 36000,
+     "dawanau": 35000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    }
+   }
+  },
+  "wa_sorghum": {
+   "label": "Dawa — white sorghum",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 28000,
+     "makarfi": 29400,
+     "giwa": 30000,
+     "anchau": 29000,
+     "dandume": 28000,
+     "dawanau": 35000,
+     "sundu": 30000,
+     "shinkafi": 27300,
+     "tsafe": 27000
+    },
+    "2026-01-05": {
+     "soba": 28000,
+     "makarfi": 29400,
+     "giwa": 30000,
+     "anchau": 29000,
+     "dandume": 28000,
+     "dawanau": 35000,
+     "sundu": 30000,
+     "shinkafi": 27300,
+     "tsafe": 27500
+    },
+    "2026-01-12": {
+     "soba": 24000,
+     "makarfi": 27000,
+     "giwa": 26000,
+     "anchau": 29000,
+     "dandume": 28000,
+     "dawanau": 35000,
+     "sundu": 30000,
+     "shinkafi": 27300,
+     "tsafe": 27500
+    },
+    "2026-01-19": {
+     "soba": 24000,
+     "makarfi": 27000,
+     "giwa": 26000,
+     "anchau": 29000,
+     "dandume": 28000,
+     "dawanau": 35000,
+     "sundu": 30000,
+     "shinkafi": 27300,
+     "tsafe": 27500
+    },
+    "2026-02-02": {
+     "soba": 25000,
+     "makarfi": 27000,
+     "giwa": 26000,
+     "anchau": 29000,
+     "dandume": 28000,
+     "dawanau": 35000,
+     "sundu": 30000,
+     "shinkafi": 27300,
+     "tsafe": 27500
+    },
+    "2026-02-09": {
+     "soba": 28000,
+     "makarfi": 30000,
+     "giwa": 29000,
+     "anchau": 30500,
+     "dandume": 29000,
+     "dawanau": 35000,
+     "sundu": 28700,
+     "shinkafi": 31000,
+     "tsafe": 31000
+    },
+    "2026-02-16": {
+     "soba": 30000,
+     "makarfi": 35000,
+     "giwa": 31000,
+     "anchau": 30000,
+     "dandume": 33000,
+     "dawanau": 35000,
+     "sundu": 30000,
+     "shinkafi": 32000,
+     "tsafe": 32000,
+     "birningwari": 28000
+    },
+    "2026-02-23": {
+     "makarfi": 34000,
+     "giwa": 32000,
+     "anchau": 34000,
+     "dandume": 30000,
+     "dawanau": 31000,
+     "sundu": 35000,
+     "shinkafi": 31000,
+     "tsafe": 30000,
+     "birningwari": 31000
+    }
+   }
+  },
+  "wa_millet": {
+   "label": "Gero — white millet",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 36000,
+     "makarfi": 35000,
+     "giwa": 38000,
+     "anchau": 37000,
+     "dandume": 36000,
+     "dawanau": 38000,
+     "sundu": 37000,
+     "shinkafi": 35000,
+     "tsafe": 35000
+    },
+    "2026-01-05": {
+     "soba": 36000,
+     "makarfi": 35000,
+     "giwa": 38000,
+     "anchau": 37000,
+     "dandume": 35000,
+     "dawanau": 38000,
+     "sundu": 37000,
+     "shinkafi": 35000,
+     "tsafe": 35000
+    },
+    "2026-01-12": {
+     "soba": 36000,
+     "makarfi": 35000,
+     "giwa": 38000,
+     "anchau": 37000,
+     "dandume": 35000,
+     "dawanau": 38000,
+     "sundu": 37000,
+     "shinkafi": 35000,
+     "tsafe": 35000
+    },
+    "2026-01-19": {
+     "soba": 36000,
+     "makarfi": 35000,
+     "giwa": 38000,
+     "anchau": 37000,
+     "dandume": 35000,
+     "dawanau": 38000,
+     "sundu": 37000,
+     "shinkafi": 35000,
+     "tsafe": 35000
+    },
+    "2026-02-02": {
+     "soba": 36000,
+     "makarfi": 35000,
+     "giwa": 36000,
+     "anchau": 35000,
+     "dandume": 35000,
+     "dawanau": 38000,
+     "sundu": 37000,
+     "shinkafi": 35000,
+     "tsafe": 35000
+    },
+    "2026-02-09": {
+     "soba": 37000,
+     "makarfi": 36000,
+     "giwa": 36000,
+     "anchau": 38000,
+     "dandume": 35000,
+     "dawanau": 38000,
+     "sundu": 37000,
+     "shinkafi": 35000,
+     "tsafe": 35000
+    },
+    "2026-02-16": {
+     "soba": 40000,
+     "makarfi": 41000,
+     "giwa": 42000,
+     "anchau": 39000,
+     "dandume": 39000,
+     "dawanau": 42000,
+     "sundu": 40000,
+     "shinkafi": 39000,
+     "tsafe": 39000,
+     "birningwari": 38000
+    },
+    "2026-02-23": {
+     "soba": 40000,
+     "makarfi": 41000,
+     "giwa": 42000,
+     "anchau": 39000,
+     "dandume": 39000,
+     "dawanau": 42000,
+     "sundu": 40000,
+     "shinkafi": 39000,
+     "tsafe": 39000,
+     "birningwari": 38000
+    }
+   }
+  },
+  "wa_cowpea": {
+   "label": "Wake — brown cowpea (ja)",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 58000,
+     "makarfi": 60000,
+     "giwa": 65000,
+     "anchau": 65000,
+     "dandume": 66000,
+     "dawanau": 75000,
+     "sundu": 61000,
+     "shinkafi": 70000,
+     "tsafe": 70000
+    },
+    "2026-01-05": {
+     "soba": 58000,
+     "makarfi": 60000,
+     "giwa": 62000,
+     "anchau": 65000,
+     "dandume": 66000,
+     "dawanau": 75000,
+     "sundu": 67000,
+     "shinkafi": 70000,
+     "tsafe": 70000
+    },
+    "2026-01-12": {
+     "soba": 58000,
+     "makarfi": 60000,
+     "giwa": 62000,
+     "anchau": 65000,
+     "dandume": 66000,
+     "dawanau": 75000,
+     "sundu": 67000,
+     "shinkafi": 70000,
+     "tsafe": 70000
+    },
+    "2026-01-19": {
+     "soba": 58000,
+     "makarfi": 60000,
+     "giwa": 62000,
+     "anchau": 65000,
+     "dandume": 66000,
+     "dawanau": 75000,
+     "sundu": 67000,
+     "shinkafi": 70000,
+     "tsafe": 70000
+    },
+    "2026-02-02": {
+     "soba": 63600,
+     "makarfi": 62000,
+     "giwa": 61000,
+     "anchau": 62000,
+     "dandume": 64000,
+     "dawanau": 70000,
+     "sundu": 63000,
+     "shinkafi": 61500,
+     "tsafe": 61500
+    },
+    "2026-02-09": {
+     "soba": 63600,
+     "makarfi": 62000,
+     "giwa": 61000,
+     "anchau": 62000,
+     "dandume": 64000,
+     "dawanau": 70000,
+     "sundu": 63000,
+     "shinkafi": 61500,
+     "tsafe": 61500
+    },
+    "2026-02-16": {
+     "soba": 80000,
+     "makarfi": 81000,
+     "giwa": 83000,
+     "anchau": 81000,
+     "dandume": 80000,
+     "dawanau": 85000,
+     "sundu": 90000,
+     "shinkafi": 88000,
+     "tsafe": 90000
+    },
+    "2026-02-23": {
+     "soba": 80000,
+     "makarfi": 90000,
+     "giwa": 91000,
+     "anchau": 75000,
+     "dandume": 85000,
+     "dawanau": 86000,
+     "sundu": 93000,
+     "shinkafi": 83000,
+     "tsafe": 83000
+    }
+   }
+  }
+ },
+ "extra_series": {
+  "alkama_wheat_100kg": {
+   "label": "Alkama — wheat",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 66000,
+     "makarfi": 70000,
+     "giwa": 72000,
+     "anchau": 65000,
+     "dandume": 60000,
+     "dawanau": 60000,
+     "sundu": 64000,
+     "shinkafi": 72000,
+     "tsafe": 72000
+    },
+    "2026-01-05": {
+     "soba": 66000,
+     "makarfi": 70000,
+     "giwa": 72000,
+     "anchau": 65000,
+     "dandume": 60000,
+     "dawanau": 60000,
+     "sundu": 64000,
+     "shinkafi": 72000,
+     "tsafe": 72000
+    },
+    "2026-01-12": {
+     "soba": 66000,
+     "makarfi": 70000,
+     "giwa": 72000,
+     "anchau": 65000,
+     "dandume": 60000,
+     "dawanau": 60000,
+     "sundu": 64000,
+     "shinkafi": 72000,
+     "tsafe": 72000
+    },
+    "2026-01-19": {
+     "soba": 66000,
+     "makarfi": 70000,
+     "giwa": 72000,
+     "anchau": 65000,
+     "dandume": 60000,
+     "dawanau": 60000,
+     "sundu": 64000,
+     "shinkafi": 72000,
+     "tsafe": 72000
+    },
+    "2026-02-02": {
+     "soba": 66000,
+     "makarfi": 70000,
+     "giwa": 72000,
+     "anchau": 65000,
+     "dandume": 60000,
+     "dawanau": 60000,
+     "sundu": 64000,
+     "shinkafi": 72000,
+     "tsafe": 72000
+    },
+    "2026-02-09": {
+     "soba": 66000,
+     "makarfi": 70000,
+     "giwa": 72000,
+     "anchau": 65000,
+     "dandume": 60000,
+     "dawanau": 60000,
+     "sundu": 64000,
+     "shinkafi": 72000,
+     "tsafe": 72000
+    },
+    "2026-02-16": {
+     "soba": 66000,
+     "makarfi": 70000,
+     "giwa": 72000,
+     "anchau": 65000,
+     "dandume": 60000,
+     "dawanau": 60000,
+     "sundu": 64000,
+     "shinkafi": 72000,
+     "tsafe": 72000,
+     "birningwari": 80000
+    },
+    "2026-02-23": {
+     "soba": 66000,
+     "makarfi": 70000,
+     "giwa": 72000,
+     "anchau": 65000,
+     "dandume": 60000,
+     "dawanau": 60000,
+     "sundu": 64000,
+     "shinkafi": 72000,
+     "tsafe": 72000,
+     "birningwari": 80000
+    }
+   }
+  },
+  "masara_yellow_100kg": {
+   "label": "Masara — yellow maize",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 24000,
+     "makarfi": 23000,
+     "giwa": 22800,
+     "anchau": 23000,
+     "dandume": 21000,
+     "dawanau": 25000,
+     "sundu": 23400,
+     "shinkafi": 26000,
+     "tsafe": 26000
+    },
+    "2026-01-05": {
+     "soba": 26500,
+     "makarfi": 26000,
+     "giwa": 28000,
+     "anchau": 26000,
+     "dandume": 27000,
+     "dawanau": 30000,
+     "sundu": 26500,
+     "shinkafi": 29000,
+     "tsafe": 29000
+    },
+    "2026-01-12": {
+     "soba": 26500,
+     "makarfi": 26000,
+     "giwa": 25000,
+     "anchau": 26000,
+     "dandume": 27000,
+     "dawanau": 30000,
+     "sundu": 26500,
+     "shinkafi": 29000,
+     "tsafe": 29000
+    },
+    "2026-01-19": {
+     "soba": 26500,
+     "makarfi": 26000,
+     "giwa": 25000,
+     "anchau": 26000,
+     "dandume": 27000,
+     "dawanau": 30000,
+     "sundu": 26500,
+     "shinkafi": 29000,
+     "tsafe": 29000
+    },
+    "2026-02-02": {
+     "soba": 27000,
+     "makarfi": 27500,
+     "giwa": 26000,
+     "anchau": 26500,
+     "dandume": 27500,
+     "dawanau": 30000,
+     "sundu": 27500,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-09": {
+     "soba": 32000,
+     "makarfi": 31000,
+     "giwa": 32500,
+     "anchau": 33000,
+     "dandume": 34000,
+     "dawanau": 36000,
+     "sundu": 34000,
+     "shinkafi": 35000,
+     "tsafe": 35000
+    },
+    "2026-02-16": {
+     "soba": 32000,
+     "makarfi": 31000,
+     "giwa": 32500,
+     "anchau": 33000,
+     "dandume": 34000,
+     "dawanau": 36000,
+     "sundu": 34000,
+     "shinkafi": 35000,
+     "tsafe": 35000,
+     "birningwari": 27000
+    },
+    "2026-02-23": {
+     "makarfi": 26000,
+     "giwa": 29000,
+     "anchau": 25000,
+     "dandume": 30000,
+     "dawanau": 36000,
+     "sundu": 30000,
+     "shinkafi": 35000,
+     "tsafe": 35000,
+     "birningwari": 32000
+    }
+   }
+  },
+  "dawa_yellow_100kg": {
+   "label": "Dawa — yellow sorghum",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 22000,
+     "makarfi": 25000,
+     "giwa": 28000,
+     "anchau": 27500,
+     "dandume": 27500,
+     "dawanau": 35000,
+     "sundu": 27000,
+     "shinkafi": 26500,
+     "tsafe": 26500
+    },
+    "2026-01-05": {
+     "soba": 26000,
+     "makarfi": 26800,
+     "giwa": 27000,
+     "anchau": 25000,
+     "dandume": 27500,
+     "dawanau": 30000,
+     "sundu": 27000,
+     "shinkafi": 26500,
+     "tsafe": 26500
+    },
+    "2026-01-12": {
+     "soba": 22000,
+     "makarfi": 24000,
+     "giwa": 23000,
+     "anchau": 25000,
+     "dandume": 27500,
+     "dawanau": 30000,
+     "sundu": 26000,
+     "shinkafi": 26500,
+     "tsafe": 26500
+    },
+    "2026-01-19": {
+     "soba": 22000,
+     "makarfi": 24000,
+     "giwa": 23000,
+     "anchau": 25000,
+     "dandume": 27500,
+     "dawanau": 30000,
+     "sundu": 26000,
+     "shinkafi": 26500,
+     "tsafe": 26500
+    },
+    "2026-02-02": {
+     "soba": 22000,
+     "makarfi": 24000,
+     "giwa": 23000,
+     "anchau": 25000,
+     "dandume": 27500,
+     "dawanau": 30000,
+     "sundu": 26000,
+     "shinkafi": 26500,
+     "tsafe": 26500
+    },
+    "2026-02-09": {
+     "soba": 25000,
+     "makarfi": 26000,
+     "giwa": 28000,
+     "anchau": 27000,
+     "dandume": 26500,
+     "dawanau": 30000,
+     "sundu": 26000,
+     "shinkafi": 29000,
+     "tsafe": 29000
+    },
+    "2026-02-16": {
+     "soba": 28000,
+     "makarfi": 30000,
+     "giwa": 29000,
+     "anchau": 29000,
+     "dandume": 31000,
+     "dawanau": 28500,
+     "sundu": 30000,
+     "shinkafi": 30500,
+     "tsafe": 26000,
+     "birningwari": 26000
+    },
+    "2026-02-23": {
+     "makarfi": 30000,
+     "giwa": 28000,
+     "anchau": 29000,
+     "dandume": 28000,
+     "dawanau": 31000,
+     "sundu": 30000,
+     "shinkafi": 29000,
+     "tsafe": 30500,
+     "birningwari": 30500
+    }
+   }
+  },
+  "dauro_dark_millet_100kg": {
+   "label": "Dauro — dark millet",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 45000,
+     "makarfi": 48000,
+     "giwa": 47000,
+     "anchau": 47000,
+     "dandume": 46000,
+     "dawanau": 48000,
+     "sundu": 47500,
+     "shinkafi": 46500,
+     "tsafe": 46000
+    },
+    "2026-01-05": {
+     "soba": 45000,
+     "makarfi": 48000,
+     "giwa": 47000,
+     "anchau": 47000,
+     "dandume": 46000,
+     "dawanau": 48000,
+     "sundu": 47500,
+     "shinkafi": 46500,
+     "tsafe": 46000
+    },
+    "2026-01-12": {
+     "soba": 41000,
+     "makarfi": 43000,
+     "giwa": 40000,
+     "anchau": 39000,
+     "dandume": 46000,
+     "dawanau": 48000,
+     "sundu": 42500,
+     "shinkafi": 43500,
+     "tsafe": 43000
+    },
+    "2026-01-19": {
+     "soba": 41000,
+     "makarfi": 43000,
+     "giwa": 40000,
+     "anchau": 39000,
+     "dandume": 46000,
+     "dawanau": 48000,
+     "sundu": 42500,
+     "shinkafi": 43500,
+     "tsafe": 43000
+    },
+    "2026-02-02": {
+     "soba": 37500,
+     "makarfi": 37000,
+     "giwa": 38500,
+     "anchau": 38000,
+     "dandume": 38000,
+     "dawanau": 40000,
+     "sundu": 39000,
+     "shinkafi": 40000,
+     "tsafe": 40000
+    },
+    "2026-02-09": {
+     "soba": 37500,
+     "makarfi": 37000,
+     "giwa": 38500,
+     "anchau": 38000,
+     "dandume": 38000,
+     "dawanau": 40000,
+     "sundu": 39000,
+     "shinkafi": 40000,
+     "tsafe": 40000
+    },
+    "2026-02-16": {
+     "soba": 37500,
+     "makarfi": 37000,
+     "giwa": 38500,
+     "anchau": 38000,
+     "dandume": 38000,
+     "dawanau": 40000,
+     "sundu": 39000,
+     "shinkafi": 40000,
+     "tsafe": 40000,
+     "birningwari": 40000
+    },
+    "2026-02-23": {
+     "soba": 37500,
+     "makarfi": 37000,
+     "giwa": 38500,
+     "anchau": 38000,
+     "dandume": 38000,
+     "dawanau": 40000,
+     "sundu": 39000,
+     "shinkafi": 40000,
+     "tsafe": 40000,
+     "birningwari": 40000
+    }
+   }
+  },
+  "shinkafa_milled_100kg": {
+   "label": "Shinkafa — milled rice",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 108000,
+     "makarfi": 100000,
+     "giwa": 106000,
+     "anchau": 98000,
+     "dandume": 98000,
+     "dawanau": 110000,
+     "sundu": 108000,
+     "shinkafi": 110000,
+     "tsafe": 110000
+    },
+    "2026-01-05": {
+     "soba": 108000,
+     "makarfi": 100000,
+     "giwa": 106000,
+     "anchau": 98000,
+     "dandume": 98000,
+     "dawanau": 110000,
+     "sundu": 108000,
+     "shinkafi": 110000,
+     "tsafe": 110000
+    },
+    "2026-01-12": {
+     "soba": 104000,
+     "makarfi": 100000,
+     "giwa": 102000,
+     "anchau": 98000,
+     "dandume": 98000,
+     "dawanau": 110000,
+     "sundu": 98000,
+     "shinkafi": 97000,
+     "tsafe": 97000
+    },
+    "2026-01-19": {
+     "soba": 104000,
+     "makarfi": 100000,
+     "giwa": 102000,
+     "anchau": 98000,
+     "dandume": 98000,
+     "dawanau": 110000,
+     "sundu": 98000,
+     "shinkafi": 97000,
+     "tsafe": 97000
+    },
+    "2026-02-02": {
+     "soba": 104000,
+     "makarfi": 100000,
+     "giwa": 102000,
+     "anchau": 98000,
+     "dandume": 98000,
+     "dawanau": 110000,
+     "sundu": 98000,
+     "shinkafi": 97000,
+     "tsafe": 97000
+    },
+    "2026-02-09": {
+     "soba": 110000,
+     "makarfi": 115000,
+     "giwa": 122000,
+     "anchau": 111000,
+     "dandume": 130000,
+     "dawanau": 120000,
+     "sundu": 112000,
+     "shinkafi": 113000,
+     "tsafe": 113000
+    },
+    "2026-02-16": {
+     "soba": 110000,
+     "makarfi": 115000,
+     "giwa": 122000,
+     "anchau": 111000,
+     "dandume": 130000,
+     "dawanau": 120000,
+     "sundu": 112000,
+     "shinkafi": 113000,
+     "tsafe": 113000
+    },
+    "2026-02-23": {
+     "makarfi": 95000,
+     "giwa": 110000,
+     "anchau": 120000,
+     "dandume": 110000,
+     "dawanau": 120000,
+     "sundu": 95000,
+     "shinkafi": 113000,
+     "tsafe": 114000
+    }
+   }
+  },
+  "wake_white_100kg": {
+   "label": "Wake — white cowpea",
+   "unitKg": 100,
+   "obs": {
+    "2026-01-05": {
+     "soba": 52000,
+     "makarfi": 54000,
+     "giwa": 43000,
+     "anchau": 53500,
+     "dandume": 56000,
+     "dawanau": 60000,
+     "sundu": 55000,
+     "shinkafi": 52000,
+     "tsafe": 52000
+    },
+    "2026-01-12": {
+     "soba": 52000,
+     "makarfi": 54000,
+     "giwa": 43000,
+     "anchau": 53500,
+     "dandume": 55000,
+     "dawanau": 60000,
+     "sundu": 55000,
+     "shinkafi": 52000,
+     "tsafe": 52000
+    },
+    "2026-01-19": {
+     "soba": 52000,
+     "makarfi": 54000,
+     "giwa": 43000,
+     "anchau": 53500,
+     "dandume": 55000,
+     "dawanau": 60000,
+     "sundu": 55000,
+     "shinkafi": 52000,
+     "tsafe": 52000
+    },
+    "2026-02-02": {
+     "soba": 56000,
+     "makarfi": 58000,
+     "giwa": 54000,
+     "anchau": 53500,
+     "dandume": 55000,
+     "dawanau": 61000,
+     "sundu": 58000,
+     "shinkafi": 54000,
+     "tsafe": 54000
+    },
+    "2026-02-09": {
+     "soba": 56000,
+     "makarfi": 58000,
+     "giwa": 54000,
+     "anchau": 53500,
+     "dandume": 55000,
+     "dawanau": 61000,
+     "sundu": 58000,
+     "shinkafi": 54000,
+     "tsafe": 54000
+    },
+    "2026-02-16": {
+     "soba": 78000,
+     "makarfi": 76000,
+     "giwa": 80000,
+     "anchau": 79000,
+     "dandume": 80000,
+     "dawanau": 77000,
+     "sundu": 74000,
+     "shinkafi": 74000,
+     "tsafe": 75000
+    },
+    "2026-02-23": {
+     "soba": 76000,
+     "makarfi": 80000,
+     "giwa": 80000,
+     "anchau": 78000,
+     "dandume": 80000,
+     "dawanau": 81000,
+     "sundu": 80000,
+     "shinkafi": 74000,
+     "tsafe": 74000
+    }
+   }
+  },
+  "soyabean_100kg": {
+   "label": "Soyabean (old crop)",
+   "unitKg": 100,
+   "obs": {
+    "2026-01-05": {
+     "soba": 53000,
+     "makarfi": 54000,
+     "giwa": 47000,
+     "anchau": 49000,
+     "dandume": 50000,
+     "dawanau": 55000,
+     "sundu": 52000,
+     "shinkafi": 55000,
+     "tsafe": 54000
+    },
+    "2026-01-12": {
+     "soba": 53000,
+     "makarfi": 54000,
+     "giwa": 53000,
+     "anchau": 49000,
+     "dandume": 50000,
+     "dawanau": 55400,
+     "sundu": 52500,
+     "shinkafi": 55000,
+     "tsafe": 54800
+    },
+    "2026-01-19": {
+     "soba": 53000,
+     "makarfi": 54000,
+     "giwa": 53000,
+     "anchau": 49000,
+     "dandume": 50000,
+     "dawanau": 55400,
+     "sundu": 52500,
+     "shinkafi": 55000,
+     "tsafe": 54800
+    },
+    "2026-02-02": {
+     "soba": 57000,
+     "makarfi": 58000,
+     "giwa": 59000,
+     "anchau": 60000,
+     "dandume": 59000,
+     "dawanau": 66000,
+     "sundu": 59200,
+     "shinkafi": 65000,
+     "tsafe": 65000
+    },
+    "2026-02-09": {
+     "soba": 57000,
+     "makarfi": 58000,
+     "giwa": 59000,
+     "anchau": 60000,
+     "dandume": 59000,
+     "dawanau": 66000,
+     "sundu": 59200,
+     "shinkafi": 65000,
+     "tsafe": 65000
+    },
+    "2026-02-16": {
+     "soba": 66000,
+     "makarfi": 68500,
+     "giwa": 67500,
+     "anchau": 68000,
+     "dandume": 68000,
+     "dawanau": 70000,
+     "sundu": 62000,
+     "shinkafi": 67000,
+     "tsafe": 61000
+    },
+    "2026-02-23": {
+     "soba": 65000,
+     "makarfi": 65000,
+     "giwa": 66000,
+     "anchau": 63000,
+     "dandume": 65000,
+     "dawanau": 70000,
+     "sundu": 65000,
+     "shinkafi": 67000,
+     "tsafe": 68000
+    }
+   }
+  },
+  "gyada_unshelled": {
+   "label": "Gyada — groundnut unshelled (bag)",
+   "unitKg": 100,
+   "obs": {
+    "2026-01-05": {
+     "soba": 29000,
+     "makarfi": 29000,
+     "giwa": 31000,
+     "anchau": 28000,
+     "dandume": 27000,
+     "dawanau": 32000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-01-12": {
+     "soba": 29000,
+     "makarfi": 29000,
+     "giwa": 31000,
+     "anchau": 28000,
+     "dandume": 27000,
+     "dawanau": 32000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-01-19": {
+     "soba": 29000,
+     "makarfi": 29000,
+     "giwa": 31000,
+     "anchau": 28000,
+     "dandume": 27000,
+     "dawanau": 32000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-02": {
+     "soba": 29000,
+     "makarfi": 29000,
+     "giwa": 31000,
+     "anchau": 28000,
+     "dandume": 27000,
+     "dawanau": 32000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-09": {
+     "soba": 29000,
+     "makarfi": 29000,
+     "giwa": 31000,
+     "anchau": 28000,
+     "dandume": 27000,
+     "dawanau": 32000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-16": {
+     "soba": 29000,
+     "makarfi": 29500,
+     "giwa": 31000,
+     "anchau": 28000,
+     "dandume": 27000,
+     "dawanau": 29200,
+     "sundu": 30000,
+     "shinkafi": 32500,
+     "tsafe": 32500,
+     "birningwari": 40000
+    },
+    "2026-02-23": {
+     "soba": 42000,
+     "makarfi": 50000,
+     "giwa": 48000,
+     "anchau": 40000,
+     "dandume": 46000,
+     "dawanau": 39200,
+     "sundu": 45000,
+     "shinkafi": 32500,
+     "tsafe": 32500,
+     "birningwari": 40000
+    }
+   }
+  },
+  "gyada_shelled": {
+   "label": "Gyada — groundnut shelled (bag)",
+   "unitKg": 100,
+   "obs": {
+    "2025-12-22": {
+     "soba": 120000,
+     "makarfi": 119000,
+     "giwa": 122000,
+     "anchau": 115000,
+     "dandume": 112000,
+     "dawanau": 140000,
+     "sundu": 117000,
+     "shinkafi": 121000,
+     "tsafe": 121000
+    },
+    "2026-01-05": {
+     "soba": 130000,
+     "makarfi": 145000,
+     "giwa": 122000,
+     "anchau": 135000,
+     "dandume": 142000,
+     "dawanau": 145000,
+     "sundu": 136000,
+     "shinkafi": 146000,
+     "tsafe": 146000
+    },
+    "2026-01-12": {
+     "soba": 130000,
+     "makarfi": 145000,
+     "giwa": 122000,
+     "anchau": 135000,
+     "dandume": 142000,
+     "dawanau": 145000,
+     "sundu": 136000,
+     "shinkafi": 146000,
+     "tsafe": 146000
+    },
+    "2026-01-19": {
+     "soba": 130000,
+     "makarfi": 145000,
+     "giwa": 122000,
+     "anchau": 135000,
+     "dandume": 142000,
+     "dawanau": 145000,
+     "sundu": 136000,
+     "shinkafi": 146000,
+     "tsafe": 146000
+    },
+    "2026-02-02": {
+     "soba": 130000,
+     "makarfi": 145000,
+     "giwa": 132000,
+     "anchau": 135000,
+     "dandume": 142000,
+     "dawanau": 145000,
+     "sundu": 136000,
+     "shinkafi": 146000,
+     "tsafe": 146000
+    },
+    "2026-02-09": {
+     "soba": 130000,
+     "makarfi": 145000,
+     "giwa": 132000,
+     "anchau": 135000,
+     "dandume": 142000,
+     "dawanau": 145000,
+     "sundu": 136000,
+     "shinkafi": 146000,
+     "tsafe": 146000
+    },
+    "2026-02-16": {
+     "soba": 130000,
+     "makarfi": 145000,
+     "giwa": 132000,
+     "anchau": 135000,
+     "dandume": 142000,
+     "dawanau": 145000,
+     "sundu": 136000,
+     "shinkafi": 146000,
+     "tsafe": 146000,
+     "birningwari": 155000
+    },
+    "2026-02-23": {
+     "soba": 140000,
+     "makarfi": 155000,
+     "giwa": 162000,
+     "anchau": 145000,
+     "dandume": 162000,
+     "dawanau": 157000,
+     "sundu": 160000,
+     "shinkafi": 140000,
+     "tsafe": 146000,
+     "birningwari": 155000
+    }
+   }
+  },
+  "dried_cassava_150kg": {
+   "label": "Busheshen rogo — dried cassava",
+   "unitKg": 150,
+   "obs": {
+    "2026-01-05": {
+     "soba": 29000,
+     "makarfi": 30000,
+     "giwa": 31000,
+     "anchau": 27000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 30000,
+     "shinkafi": 27500,
+     "tsafe": 27500
+    },
+    "2026-01-12": {
+     "soba": 29000,
+     "makarfi": 30000,
+     "giwa": 31000,
+     "anchau": 27000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 30000,
+     "shinkafi": 27500,
+     "tsafe": 27500
+    },
+    "2026-01-19": {
+     "soba": 29000,
+     "makarfi": 30000,
+     "giwa": 31000,
+     "anchau": 27000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 30000,
+     "shinkafi": 27500,
+     "tsafe": 27500
+    },
+    "2026-02-02": {
+     "soba": 29000,
+     "makarfi": 30000,
+     "giwa": 31000,
+     "anchau": 27000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 30000,
+     "shinkafi": 27500,
+     "tsafe": 27500
+    },
+    "2026-02-09": {
+     "soba": 29000,
+     "makarfi": 30000,
+     "giwa": 31000,
+     "anchau": 27000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 30000,
+     "shinkafi": 27500,
+     "tsafe": 27500
+    },
+    "2026-02-16": {
+     "soba": 29000,
+     "makarfi": 30000,
+     "giwa": 31000,
+     "anchau": 27000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 30000,
+     "shinkafi": 27500,
+     "tsafe": 27500,
+     "birningwari": 30000
+    },
+    "2026-02-23": {
+     "soba": 29000,
+     "makarfi": 30000,
+     "giwa": 31000,
+     "anchau": 27000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 30000,
+     "shinkafi": 27500,
+     "tsafe": 27500,
+     "birningwari": 30000
+    }
+   }
+  },
+  "garri_50kg": {
+   "label": "Garin rogo — garri",
+   "unitKg": 50,
+   "obs": {
+    "2026-01-05": {
+     "soba": 26500,
+     "makarfi": 27000,
+     "giwa": 28000,
+     "anchau": 29000,
+     "dandume": 27500,
+     "dawanau": 26000,
+     "sundu": 27500,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-01-12": {
+     "soba": 26500,
+     "makarfi": 27000,
+     "giwa": 28000,
+     "anchau": 29000,
+     "dandume": 27500,
+     "dawanau": 26000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-01-19": {
+     "soba": 27500,
+     "makarfi": 28000,
+     "giwa": 29000,
+     "anchau": 29000,
+     "dandume": 28500,
+     "dawanau": 26000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-02": {
+     "soba": 27500,
+     "makarfi": 28000,
+     "giwa": 29000,
+     "anchau": 29000,
+     "dandume": 28500,
+     "dawanau": 26000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-09": {
+     "soba": 27500,
+     "makarfi": 28000,
+     "giwa": 29000,
+     "anchau": 29000,
+     "dandume": 28500,
+     "dawanau": 26000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-02-16": {
+     "soba": 27500,
+     "makarfi": 28000,
+     "giwa": 29000,
+     "anchau": 29000,
+     "dandume": 28500,
+     "dawanau": 26000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000,
+     "birningwari": 30000
+    },
+    "2026-02-23": {
+     "soba": 27500,
+     "makarfi": 28000,
+     "giwa": 29000,
+     "anchau": 29000,
+     "dandume": 28500,
+     "dawanau": 26000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000,
+     "birningwari": 30000
+    }
+   }
+  },
+  "egusi_50kg": {
+   "label": "Agushi/Egusi — melon seed",
+   "unitKg": 50,
+   "obs": {
+    "2025-12-22": {
+     "soba": 162000,
+     "makarfi": 170000,
+     "giwa": 169000,
+     "anchau": 175000,
+     "dandume": 176000
+    },
+    "2026-01-05": {
+     "soba": 168000,
+     "makarfi": 170000,
+     "giwa": 169000,
+     "anchau": 175000,
+     "dandume": 176000,
+     "dawanau": 171000,
+     "sundu": 172000,
+     "shinkafi": 171500,
+     "tsafe": 171500
+    },
+    "2026-01-12": {
+     "soba": 168000,
+     "makarfi": 170000,
+     "giwa": 169000,
+     "anchau": 175000,
+     "dandume": 176000,
+     "dawanau": 171000,
+     "sundu": 172000,
+     "shinkafi": 171500,
+     "tsafe": 171500
+    },
+    "2026-01-19": {
+     "soba": 168000,
+     "makarfi": 170000,
+     "giwa": 169000,
+     "anchau": 175000,
+     "dandume": 176000,
+     "dawanau": 171000,
+     "sundu": 172000,
+     "shinkafi": 171500,
+     "tsafe": 171500
+    },
+    "2026-02-02": {
+     "soba": 200000,
+     "makarfi": 202000,
+     "giwa": 201000,
+     "anchau": 204000,
+     "dandume": 204000,
+     "dawanau": 201000,
+     "sundu": 202200,
+     "shinkafi": 205000,
+     "tsafe": 205000
+    },
+    "2026-02-09": {
+     "soba": 200000,
+     "makarfi": 202000,
+     "giwa": 201000,
+     "anchau": 204000,
+     "dandume": 204000,
+     "dawanau": 201000,
+     "sundu": 202200,
+     "shinkafi": 205000,
+     "tsafe": 205000
+    },
+    "2026-02-16": {
+     "soba": 200000,
+     "makarfi": 202000,
+     "giwa": 201000,
+     "anchau": 204000,
+     "dandume": 204000,
+     "dawanau": 201000,
+     "sundu": 202200,
+     "shinkafi": 205000,
+     "tsafe": 205000,
+     "birningwari": 220000
+    },
+    "2026-02-23": {
+     "soba": 200000,
+     "makarfi": 202000,
+     "giwa": 201000,
+     "anchau": 204000,
+     "dandume": 204000,
+     "dawanau": 201000,
+     "sundu": 202200,
+     "shinkafi": 205000,
+     "tsafe": 205000,
+     "birningwari": 220000
+    }
+   }
+  }
+ }
+}
