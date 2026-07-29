@@ -1,6 +1,6 @@
 {
  "meta": {
-  "source": "Nigeria agricultural extension services weekly market survey: 'Agricultural commodity prices from some major markets across the North Western states in Nigeria' (Kaduna, Katsina, Kano, Zamfara). 22 Dec 2025 from photographed handwritten sheets; 5 Jan – 23 Feb 2026 from weekly Word reports.",
+  "source": "Nigeria agricultural extension services weekly market survey: 'Agricultural commodity prices from some major markets across the North Western states in Nigeria' (originally Kaduna, Katsina, Kano, Zamfara; expanded from late March 2026 into a national panel including Niger, Oyo, Borno, Yobe, Abia, Imo, Bayelsa and Rivers states). 22 Dec 2025 from photographed handwritten sheets; 5 Jan – 23 Feb 2026 from weekly Word reports.",
   "schema": "v2-timeseries",
   "currency": "NGN",
   "dates": [
@@ -11,9 +11,16 @@
    "2026-02-02",
    "2026-02-09",
    "2026-02-16",
-   "2026-02-23"
+   "2026-02-23",
+   "2026-03-02",
+   "2026-03-09",
+   "2026-03-16",
+   "2026-03-23",
+   "2026-04-07",
+   "2026-04-21",
+   "2026-04-27"
   ],
-  "note": "Prices per bag as recorded at each market. 22 Dec values transcribed from photos (medium confidence); weekly values machine-extracted from the .docx reports (high confidence). The simulator anchors to the most recent observation for the selected crop and market."
+  "note": "Prices per bag as recorded at each market. 22 Dec values transcribed from photos (medium confidence); weekly values machine-extracted from the .docx reports (high confidence). The simulator anchors to the most recent observation for the selected crop and market. Mar–Apr 2026 values transcribed from scanned PDF reports (typed tables, medium-high confidence). The '4th week February' report (published 02/03/26) is dated 2026-03-02. The 4th-week-March file prints 07/04/26 in its header; the filename date 23/03/26 is used. From 07/04/26 the survey runs a condensed 10-market national panel; markets dropped from the panel retain their last observation as anchor."
  },
  "markets": {
   "soba": {
@@ -65,6 +72,86 @@
    "name": "Tsafe (Zamfara)",
    "state": "Zamfara",
    "remoteness": 0.85
+  },
+  "minna": {
+   "name": "Minna (Niger)",
+   "state": "Niger",
+   "remoteness": 0.5
+  },
+  "bida": {
+   "name": "Bida (Niger)",
+   "state": "Niger",
+   "remoteness": 0.5
+  },
+  "lemu": {
+   "name": "Lemu (Niger)",
+   "state": "Niger",
+   "remoteness": 0.55
+  },
+  "bodija": {
+   "name": "Bodija, Ibadan (Oyo)",
+   "state": "Oyo",
+   "remoteness": 0.18
+  },
+  "omiadio": {
+   "name": "Omi Adio (Oyo)",
+   "state": "Oyo",
+   "remoteness": 0.2
+  },
+  "biu": {
+   "name": "Biu (Borno)",
+   "state": "Borno",
+   "remoteness": 0.95
+  },
+  "muna": {
+   "name": "Muna, Maiduguri (Borno)",
+   "state": "Borno",
+   "remoteness": 1
+  },
+  "bulabulin": {
+   "name": "Bulabulin (Borno)",
+   "state": "Borno",
+   "remoteness": 1
+  },
+  "bagaroad": {
+   "name": "Baga Road (Borno)",
+   "state": "Borno",
+   "remoteness": 1
+  },
+  "monday": {
+   "name": "Monday Mkt, Maiduguri (Borno)",
+   "state": "Borno",
+   "remoteness": 1
+  },
+  "sunday": {
+   "name": "Sunday Mkt, Damaturu (Yobe)",
+   "state": "Yobe",
+   "remoteness": 0.95
+  },
+  "orieugba": {
+   "name": "Orie Ugba (Abia)",
+   "state": "Abia",
+   "remoteness": 0.35
+  },
+  "umuahia": {
+   "name": "Umuahia (Abia)",
+   "state": "Abia",
+   "remoteness": 0.35
+  },
+  "onuimo": {
+   "name": "Onu Imo (Imo)",
+   "state": "Imo",
+   "remoteness": 0.35
+  },
+  "bayelsa": {
+   "name": "Bayelsa (Bayelsa)",
+   "state": "Bayelsa",
+   "remoteness": 0.4
+  },
+  "creekroad": {
+   "name": "Creek Road, PH (Rivers)",
+   "state": "Rivers",
+   "remoteness": 0.15
   }
  },
  "series": {
@@ -160,6 +247,107 @@
      "shinkafi": 31500,
      "tsafe": 31000,
      "birningwari": 25000
+    },
+    "2026-03-02": {
+     "soba": 25000,
+     "makarfi": 24000,
+     "giwa": 28000,
+     "anchau": 26000,
+     "dandume": 28000,
+     "dawanau": 26000,
+     "sundu": 26000,
+     "shinkafi": 31000,
+     "tsafe": 30000,
+     "birningwari": 27000,
+     "bida": 28500
+    },
+    "2026-03-09": {
+     "soba": 25000,
+     "makarfi": 24000,
+     "giwa": 28000,
+     "anchau": 26000,
+     "dandume": 28000,
+     "dawanau": 26000,
+     "sundu": 26000,
+     "shinkafi": 31000,
+     "tsafe": 30000,
+     "birningwari": 27000,
+     "bida": 28500
+    },
+    "2026-03-16": {
+     "soba": 25000,
+     "makarfi": 24000,
+     "giwa": 29000,
+     "anchau": 27000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 27000,
+     "shinkafi": 31000,
+     "tsafe": 30000,
+     "birningwari": 30000
+    },
+    "2026-03-23": {
+     "makarfi": 27000,
+     "giwa": 28000,
+     "anchau": 26800,
+     "dandume": 28000,
+     "dawanau": 30000,
+     "sundu": 27000,
+     "shinkafi": 30000,
+     "tsafe": 30000,
+     "birningwari": 25000,
+     "minna": 26000,
+     "bida": 24000,
+     "lemu": 22000,
+     "bodija": 60000,
+     "omiadio": 58000,
+     "biu": 25000,
+     "muna": 33000,
+     "bulabulin": 33000,
+     "bagaroad": 34000,
+     "monday": 35000,
+     "sunday": 30000,
+     "orieugba": 93600,
+     "umuahia": 92000,
+     "onuimo": 93000,
+     "bayelsa": 58000,
+     "creekroad": 40000
+    },
+    "2026-04-07": {
+     "makarfi": 27000,
+     "dandume": 28000,
+     "dawanau": 30000,
+     "tsafe": 30000,
+     "bida": 24000,
+     "bodija": 58000,
+     "monday": 35000,
+     "sunday": 28000,
+     "umuahia": 100000,
+     "creekroad": 40000
+    },
+    "2026-04-21": {
+     "makarfi": 27000,
+     "dandume": 28000,
+     "dawanau": 30000,
+     "tsafe": 30000,
+     "bida": 24000,
+     "bodija": 58000,
+     "monday": 35000,
+     "sunday": 28000,
+     "umuahia": 70000,
+     "creekroad": 40000
+    },
+    "2026-04-27": {
+     "makarfi": 28000,
+     "dandume": 28000,
+     "dawanau": 27000,
+     "tsafe": 29000,
+     "bida": 24000,
+     "bodija": 56000,
+     "monday": 35000,
+     "sunday": 28000,
+     "umuahia": 70000,
+     "creekroad": 40000
     }
    }
   },
@@ -253,6 +441,88 @@
      "sundu": 27000,
      "shinkafi": 30000,
      "tsafe": 30000
+    },
+    "2026-03-02": {
+     "makarfi": 36000,
+     "giwa": 35000,
+     "anchau": 35000,
+     "dandume": 36000,
+     "dawanau": 35000,
+     "sundu": 34000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-03-09": {
+     "makarfi": 36000,
+     "giwa": 35000,
+     "anchau": 35000,
+     "dandume": 36000,
+     "dawanau": 35000,
+     "sundu": 34000,
+     "shinkafi": 30000,
+     "tsafe": 30000
+    },
+    "2026-03-16": {
+     "makarfi": 34000,
+     "giwa": 35000,
+     "anchau": 27000,
+     "dandume": 30000,
+     "dawanau": 35000,
+     "sundu": 32000,
+     "shinkafi": 30000,
+     "tsafe": 35000
+    },
+    "2026-03-23": {
+     "makarfi": 36000,
+     "giwa": 35000,
+     "anchau": 29000,
+     "dandume": 34000,
+     "dawanau": 35000,
+     "sundu": 32000,
+     "shinkafi": 30000,
+     "tsafe": 34000,
+     "birningwari": 35000,
+     "minna": 29000,
+     "bida": 27000,
+     "lemu": 26000,
+     "bodija": 80000,
+     "omiadio": 75000,
+     "biu": 28000,
+     "bagaroad": 32000,
+     "sunday": 23000,
+     "orieugba": 28000,
+     "umuahia": 25000,
+     "onuimo": 27000
+    },
+    "2026-04-07": {
+     "makarfi": 36000,
+     "dandume": 34000,
+     "dawanau": 34000,
+     "tsafe": 34000,
+     "bida": 26000,
+     "bodija": 70000,
+     "sunday": 23000,
+     "umuahia": 25000
+    },
+    "2026-04-21": {
+     "makarfi": 36000,
+     "dandume": 34000,
+     "dawanau": 35000,
+     "tsafe": 34000,
+     "bida": 26000,
+     "bodija": 70000,
+     "sunday": 25000,
+     "umuahia": 29000
+    },
+    "2026-04-27": {
+     "makarfi": 34000,
+     "dandume": 35000,
+     "dawanau": 36000,
+     "tsafe": 33000,
+     "bida": 26000,
+     "bodija": 70000,
+     "sunday": 25000,
+     "umuahia": 29000
     }
    }
   },
@@ -348,6 +618,101 @@
      "shinkafi": 31000,
      "tsafe": 30000,
      "birningwari": 31000
+    },
+    "2026-03-02": {
+     "soba": 29000,
+     "makarfi": 31000,
+     "giwa": 30000,
+     "anchau": 30000,
+     "dandume": 32000,
+     "dawanau": 30000,
+     "sundu": 30000,
+     "shinkafi": 30000,
+     "tsafe": 31000,
+     "birningwari": 28000
+    },
+    "2026-03-09": {
+     "soba": 29000,
+     "makarfi": 31000,
+     "giwa": 30000,
+     "anchau": 30000,
+     "dandume": 32000,
+     "dawanau": 30000,
+     "sundu": 30000,
+     "shinkafi": 30000,
+     "tsafe": 31000,
+     "birningwari": 28000
+    },
+    "2026-03-16": {
+     "soba": 29000,
+     "makarfi": 33000,
+     "giwa": 33000,
+     "anchau": 31000,
+     "dandume": 30000,
+     "dawanau": 34000,
+     "sundu": 29000,
+     "shinkafi": 30000,
+     "tsafe": 31000,
+     "birningwari": 32000
+    },
+    "2026-03-23": {
+     "makarfi": 28000,
+     "giwa": 28000,
+     "anchau": 31000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "sundu": 30000,
+     "shinkafi": 30000,
+     "tsafe": 30000,
+     "birningwari": 25000,
+     "minna": 28000,
+     "bida": 27000,
+     "lemu": 26000,
+     "bodija": 48000,
+     "omiadio": 50000,
+     "biu": 27000,
+     "muna": 27000,
+     "bulabulin": 27000,
+     "bagaroad": 28000,
+     "monday": 27000,
+     "sunday": 20000,
+     "orieugba": 102000,
+     "umuahia": 101200,
+     "onuimo": 102000
+    },
+    "2026-04-07": {
+     "makarfi": 28000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "tsafe": 30000,
+     "bida": 27000,
+     "bodija": 45500,
+     "monday": 28000,
+     "sunday": 21500,
+     "umuahia": 103000
+    },
+    "2026-04-21": {
+     "makarfi": 28000,
+     "dandume": 28000,
+     "dawanau": 32000,
+     "tsafe": 30000,
+     "bida": 27000,
+     "bodija": 46000,
+     "monday": 29000,
+     "sunday": 21500,
+     "umuahia": 98900
+    },
+    "2026-04-27": {
+     "makarfi": 31000,
+     "dandume": 34000,
+     "dawanau": 32000,
+     "tsafe": 29000,
+     "bida": 27000,
+     "bodija": 46000,
+     "monday": 29500,
+     "sunday": 22500,
+     "umuahia": 98900,
+     "creekroad": 45000
     }
    }
   },
@@ -444,6 +809,102 @@
      "shinkafi": 39000,
      "tsafe": 39000,
      "birningwari": 38000
+    },
+    "2026-03-02": {
+     "soba": 41000,
+     "makarfi": 44000,
+     "giwa": 41500,
+     "anchau": 40000,
+     "dandume": 42000,
+     "dawanau": 43000,
+     "sundu": 42500,
+     "shinkafi": 39000,
+     "tsafe": 39000,
+     "birningwari": 40000
+    },
+    "2026-03-09": {
+     "soba": 41000,
+     "makarfi": 44000,
+     "giwa": 41500,
+     "anchau": 40000,
+     "dandume": 42000,
+     "dawanau": 43000,
+     "sundu": 42500,
+     "shinkafi": 39000,
+     "tsafe": 39000,
+     "birningwari": 40000
+    },
+    "2026-03-16": {
+     "makarfi": 41000,
+     "giwa": 41000,
+     "anchau": 44000,
+     "dandume": 46000,
+     "dawanau": 45000,
+     "sundu": 42000,
+     "shinkafi": 40000,
+     "tsafe": 41500,
+     "birningwari": 41000
+    },
+    "2026-03-23": {
+     "makarfi": 41000,
+     "giwa": 42000,
+     "anchau": 43000,
+     "dandume": 42500,
+     "dawanau": 44000,
+     "sundu": 42000,
+     "shinkafi": 39000,
+     "tsafe": 39500,
+     "birningwari": 42000,
+     "minna": 31000,
+     "bida": 29000,
+     "lemu": 27000,
+     "bodija": 72000,
+     "omiadio": 73000,
+     "biu": 40000,
+     "muna": 30000,
+     "bulabulin": 31000,
+     "bagaroad": 31000,
+     "monday": 31500,
+     "sunday": 30000,
+     "orieugba": 114000,
+     "umuahia": 114000,
+     "onuimo": 114000,
+     "bayelsa": 90000,
+     "creekroad": 95000
+    },
+    "2026-04-07": {
+     "makarfi": 41000,
+     "dandume": 42500,
+     "dawanau": 44000,
+     "tsafe": 39500,
+     "bida": 29000,
+     "bodija": 70000,
+     "umuahia": 110000,
+     "creekroad": 95000
+    },
+    "2026-04-21": {
+     "makarfi": 41000,
+     "dandume": 42500,
+     "dawanau": 44000,
+     "tsafe": 39500,
+     "bida": 29000,
+     "bodija": 70000,
+     "monday": 31500,
+     "sunday": 30000,
+     "umuahia": 110000,
+     "creekroad": 95000
+    },
+    "2026-04-27": {
+     "makarfi": 41000,
+     "dandume": 42500,
+     "dawanau": 44000,
+     "tsafe": 39500,
+     "bida": 29000,
+     "bodija": 69000,
+     "monday": 31500,
+     "sunday": 31000,
+     "umuahia": 100000,
+     "creekroad": 85000
     }
    }
   },
@@ -538,6 +999,103 @@
      "sundu": 93000,
      "shinkafi": 83000,
      "tsafe": 83000
+    },
+    "2026-03-02": {
+     "soba": 79000,
+     "makarfi": 80000,
+     "giwa": 90000,
+     "anchau": 75000,
+     "dandume": 80000,
+     "dawanau": 83000,
+     "sundu": 78000,
+     "shinkafi": 80000,
+     "tsafe": 81000,
+     "birningwari": 70000
+    },
+    "2026-03-09": {
+     "soba": 81000,
+     "makarfi": 80000,
+     "giwa": 87000,
+     "anchau": 80000,
+     "dandume": 76000,
+     "dawanau": 83000,
+     "sundu": 82000,
+     "shinkafi": 80000,
+     "tsafe": 81000,
+     "birningwari": 70000
+    },
+    "2026-03-16": {
+     "soba": 81000,
+     "makarfi": 80000,
+     "giwa": 87000,
+     "anchau": 80000,
+     "dandume": 76000,
+     "dawanau": 83000,
+     "sundu": 68000,
+     "shinkafi": 80000,
+     "tsafe": 81000,
+     "birningwari": 70000
+    },
+    "2026-03-23": {
+     "makarfi": 92000,
+     "giwa": 85000,
+     "anchau": 81000,
+     "dandume": 90000,
+     "dawanau": 90000,
+     "sundu": 68000,
+     "shinkafi": 81000,
+     "tsafe": 80000,
+     "minna": 82000,
+     "bida": 80000,
+     "lemu": 78000,
+     "bodija": 98000,
+     "omiadio": 100000,
+     "biu": 90000,
+     "muna": 74000,
+     "bulabulin": 74000,
+     "bagaroad": 75000,
+     "monday": 76000,
+     "sunday": 70000,
+     "orieugba": 82000,
+     "umuahia": 80000,
+     "onuimo": 82000,
+     "bayelsa": 115000,
+     "creekroad": 90000
+    },
+    "2026-04-07": {
+     "makarfi": 85000,
+     "dandume": 90000,
+     "dawanau": 90000,
+     "tsafe": 80000,
+     "bida": 80000,
+     "bodija": 98000,
+     "monday": 76000,
+     "sunday": 70000,
+     "umuahia": 80000
+    },
+    "2026-04-21": {
+     "makarfi": 85000,
+     "dandume": 90000,
+     "dawanau": 90000,
+     "tsafe": 80000,
+     "bida": 80000,
+     "bodija": 95000,
+     "monday": 76000,
+     "sunday": 72000,
+     "umuahia": 80000,
+     "creekroad": 90000
+    },
+    "2026-04-27": {
+     "makarfi": 88000,
+     "dandume": 80000,
+     "dawanau": 91000,
+     "tsafe": 79000,
+     "bida": 80000,
+     "bodija": 94300,
+     "monday": 76000,
+     "sunday": 70000,
+     "umuahia": 80000,
+     "creekroad": 100000
     }
    }
   }
@@ -636,6 +1194,88 @@
      "shinkafi": 72000,
      "tsafe": 72000,
      "birningwari": 80000
+    },
+    "2026-03-02": {
+     "soba": 68000,
+     "makarfi": 65000,
+     "giwa": 59000,
+     "anchau": 66000,
+     "dandume": 61000,
+     "dawanau": 64000,
+     "sundu": 66000,
+     "shinkafi": 72000,
+     "tsafe": 71000,
+     "birningwari": 70000
+    },
+    "2026-03-09": {
+     "soba": 68000,
+     "makarfi": 65000,
+     "giwa": 59000,
+     "anchau": 66000,
+     "dandume": 61000,
+     "dawanau": 64000,
+     "sundu": 66000,
+     "shinkafi": 72000,
+     "tsafe": 71000,
+     "birningwari": 70000
+    },
+    "2026-03-16": {
+     "soba": 68000,
+     "makarfi": 65000,
+     "giwa": 60000,
+     "anchau": 62000,
+     "dandume": 61000,
+     "dawanau": 64000,
+     "sundu": 66000,
+     "shinkafi": 72000,
+     "tsafe": 72000,
+     "birningwari": 70000
+    },
+    "2026-03-23": {
+     "makarfi": 67000,
+     "giwa": 64000,
+     "anchau": 65500,
+     "dandume": 71000,
+     "dawanau": 66000,
+     "sundu": 66500,
+     "shinkafi": 71000,
+     "tsafe": 71500,
+     "bodija": 72000,
+     "omiadio": 73000,
+     "muna": 66000,
+     "bulabulin": 67000,
+     "bagaroad": 67000,
+     "monday": 68000,
+     "sunday": 75000,
+     "creekroad": 64000
+    },
+    "2026-04-07": {
+     "makarfi": 67000,
+     "dandume": 71000,
+     "dawanau": 66000,
+     "tsafe": 71500,
+     "bodija": 72000,
+     "umuahia": 76600
+    },
+    "2026-04-21": {
+     "makarfi": 67000,
+     "dandume": 71000,
+     "dawanau": 66000,
+     "tsafe": 71500,
+     "bodija": 70500,
+     "monday": 68000,
+     "sunday": 75000,
+     "umuahia": 76600
+    },
+    "2026-04-27": {
+     "makarfi": 65000,
+     "dandume": 68000,
+     "dawanau": 66000,
+     "tsafe": 93000,
+     "bodija": 71000,
+     "monday": 68000,
+     "sunday": 75000,
+     "umuahia": 76000
     }
    }
   },
@@ -731,6 +1371,99 @@
      "shinkafi": 35000,
      "tsafe": 35000,
      "birningwari": 32000
+    },
+    "2026-03-02": {
+     "soba": 29500,
+     "makarfi": 27000,
+     "giwa": 29000,
+     "anchau": 27000,
+     "dandume": 31000,
+     "dawanau": 29000,
+     "sundu": 27000,
+     "shinkafi": 33000,
+     "tsafe": 34000,
+     "birningwari": 28000,
+     "bida": 35500
+    },
+    "2026-03-09": {
+     "soba": 29500,
+     "makarfi": 27000,
+     "giwa": 29000,
+     "anchau": 27000,
+     "dandume": 31000,
+     "dawanau": 29000,
+     "sundu": 27000,
+     "shinkafi": 33000,
+     "tsafe": 34000,
+     "birningwari": 28000,
+     "bida": 35500
+    },
+    "2026-03-16": {
+     "soba": 29500,
+     "makarfi": 27000,
+     "giwa": 30000,
+     "anchau": 29000,
+     "dandume": 31000,
+     "dawanau": 36000,
+     "sundu": 28000,
+     "shinkafi": 35000,
+     "tsafe": 35000,
+     "birningwari": 32000
+    },
+    "2026-03-23": {
+     "makarfi": 32000,
+     "giwa": 30000,
+     "anchau": 29000,
+     "dandume": 31000,
+     "dawanau": 33000,
+     "sundu": 28000,
+     "shinkafi": 34000,
+     "tsafe": 34000,
+     "birningwari": 34000,
+     "minna": 25000,
+     "bida": 22000,
+     "lemu": 21000,
+     "bodija": 63000,
+     "omiadio": 60000,
+     "biu": 26000,
+     "sunday": 30000,
+     "orieugba": 93600,
+     "umuahia": 92000,
+     "onuimo": 93000,
+     "bayelsa": 58000,
+     "creekroad": 40000
+    },
+    "2026-04-07": {
+     "makarfi": 32000,
+     "dandume": 31000,
+     "dawanau": 33000,
+     "tsafe": 34000,
+     "bida": 22000,
+     "bodija": 60000,
+     "sunday": 28000,
+     "umuahia": 100000,
+     "creekroad": 40000
+    },
+    "2026-04-21": {
+     "makarfi": 32000,
+     "dandume": 31000,
+     "dawanau": 33000,
+     "tsafe": 34000,
+     "bida": 22000,
+     "bodija": 58000,
+     "sunday": 28000,
+     "umuahia": 72000,
+     "creekroad": 40000
+    },
+    "2026-04-27": {
+     "makarfi": 32000,
+     "dandume": 30000,
+     "dawanau": 31000,
+     "tsafe": 31000,
+     "bida": 22000,
+     "bodija": 58000,
+     "umuahia": 71000,
+     "creekroad": 40000
     }
    }
   },
@@ -826,6 +1559,101 @@
      "shinkafi": 29000,
      "tsafe": 30500,
      "birningwari": 30500
+    },
+    "2026-03-02": {
+     "soba": 31500,
+     "makarfi": 30000,
+     "giwa": 28000,
+     "anchau": 28000,
+     "dandume": 29000,
+     "dawanau": 28000,
+     "sundu": 29000,
+     "shinkafi": 28000,
+     "tsafe": 29000,
+     "birningwari": 27000
+    },
+    "2026-03-09": {
+     "soba": 31500,
+     "makarfi": 30000,
+     "giwa": 28000,
+     "anchau": 28000,
+     "dandume": 29000,
+     "dawanau": 28000,
+     "sundu": 29000,
+     "shinkafi": 28000,
+     "tsafe": 29000,
+     "birningwari": 27000
+    },
+    "2026-03-16": {
+     "soba": 31500,
+     "makarfi": 30000,
+     "giwa": 28000,
+     "anchau": 29000,
+     "dandume": 28000,
+     "dawanau": 31000,
+     "sundu": 28000,
+     "shinkafi": 30000,
+     "tsafe": 30000,
+     "birningwari": 30000
+    },
+    "2026-03-23": {
+     "makarfi": 34000,
+     "giwa": 32000,
+     "anchau": 28000,
+     "dandume": 33000,
+     "dawanau": 30000,
+     "sundu": 29000,
+     "shinkafi": 28000,
+     "tsafe": 29000,
+     "birningwari": 24000,
+     "minna": 29000,
+     "bida": 28000,
+     "lemu": 27000,
+     "bodija": 50000,
+     "omiadio": 52000,
+     "biu": 24000,
+     "muna": 26000,
+     "bulabulin": 26000,
+     "bagaroad": 26000,
+     "monday": 28000,
+     "sunday": 20000,
+     "orieugba": 102000,
+     "umuahia": 101000,
+     "onuimo": 103000
+    },
+    "2026-04-07": {
+     "makarfi": 34000,
+     "dandume": 33000,
+     "dawanau": 30000,
+     "tsafe": 29000,
+     "bida": 28000,
+     "bodija": 41000,
+     "monday": 51000,
+     "sunday": 54000,
+     "umuahia": 34000
+    },
+    "2026-04-21": {
+     "makarfi": 34000,
+     "dandume": 33000,
+     "dawanau": 30000,
+     "tsafe": 29000,
+     "bida": 28000,
+     "bodija": 48000,
+     "monday": 29000,
+     "sunday": 21500,
+     "umuahia": 100000
+    },
+    "2026-04-27": {
+     "makarfi": 28000,
+     "dandume": 32000,
+     "dawanau": 30000,
+     "tsafe": 28000,
+     "bida": 28000,
+     "bodija": 48000,
+     "monday": 29000,
+     "sunday": 29000,
+     "umuahia": 100000,
+     "creekroad": 45000
     }
    }
   },
@@ -922,6 +1750,42 @@
      "shinkafi": 40000,
      "tsafe": 40000,
      "birningwari": 40000
+    },
+    "2026-03-02": {
+     "soba": 40000,
+     "makarfi": 38000,
+     "giwa": 40000,
+     "anchau": 42000,
+     "dandume": 44000,
+     "dawanau": 43000,
+     "sundu": 44000,
+     "shinkafi": 40000,
+     "tsafe": 39000,
+     "birningwari": 42000
+    },
+    "2026-03-09": {
+     "soba": 40000,
+     "makarfi": 38000,
+     "giwa": 40000,
+     "anchau": 42000,
+     "dandume": 44000,
+     "dawanau": 43000,
+     "sundu": 44000,
+     "shinkafi": 40000,
+     "tsafe": 39000,
+     "birningwari": 42000
+    },
+    "2026-03-16": {
+     "soba": 40000,
+     "makarfi": 38000,
+     "giwa": 42000,
+     "anchau": 42000,
+     "dandume": 44000,
+     "dawanau": 43000,
+     "sundu": 44000,
+     "shinkafi": 40000,
+     "tsafe": 39000,
+     "birningwari": 42000
     }
    }
   },
@@ -1015,6 +1879,97 @@
      "sundu": 95000,
      "shinkafi": 113000,
      "tsafe": 114000
+    },
+    "2026-03-02": {
+     "makarfi": 98000,
+     "giwa": 110000,
+     "anchau": 120000,
+     "dandume": 121000,
+     "dawanau": 120000,
+     "sundu": 120000,
+     "shinkafi": 114000,
+     "tsafe": 113000
+    },
+    "2026-03-09": {
+     "makarfi": 98000,
+     "giwa": 110000,
+     "anchau": 120000,
+     "dandume": 121000,
+     "dawanau": 120000,
+     "sundu": 120000,
+     "shinkafi": 114000,
+     "tsafe": 113000
+    },
+    "2026-03-16": {
+     "makarfi": 120000,
+     "giwa": 111000,
+     "anchau": 98000,
+     "dandume": 97000,
+     "dawanau": 120000,
+     "sundu": 98000,
+     "shinkafi": 113000,
+     "tsafe": 122000
+    },
+    "2026-03-23": {
+     "makarfi": 125000,
+     "giwa": 110000,
+     "anchau": 105000,
+     "dandume": 125000,
+     "dawanau": 120000,
+     "sundu": 98000,
+     "shinkafi": 97000,
+     "tsafe": 120000,
+     "minna": 83000,
+     "bida": 80000,
+     "lemu": 79000,
+     "bodija": 108000,
+     "omiadio": 105000,
+     "biu": 80000,
+     "muna": 90000,
+     "bulabulin": 90000,
+     "bagaroad": 90000,
+     "monday": 94000,
+     "sunday": 85000,
+     "orieugba": 47500,
+     "umuahia": 46300,
+     "onuimo": 48000,
+     "bayelsa": 115000,
+     "creekroad": 68000
+    },
+    "2026-04-07": {
+     "makarfi": 125000,
+     "dandume": 125000,
+     "dawanau": 120000,
+     "tsafe": 120000,
+     "bida": 78000,
+     "bodija": 108000,
+     "monday": 94000,
+     "sunday": 85000,
+     "umuahia": 70000
+    },
+    "2026-04-21": {
+     "makarfi": 125000,
+     "dandume": 125000,
+     "dawanau": 120000,
+     "tsafe": 120000,
+     "bida": 78000,
+     "bodija": 108000,
+     "monday": 96000,
+     "sunday": 86000,
+     "umuahia": 72000,
+     "creekroad": 69000
+    },
+    "2026-04-27": {
+     "makarfi": 100000,
+     "dandume": 104000,
+     "dawanau": 123000,
+     "tsafe": 116000,
+     "bida": 78000,
+     "bodija": 104000,
+     "monday": 98000,
+     "sunday": 95000,
+     "umuahia": 73500,
+     "creekroad": 59000
     }
    }
   },
@@ -1098,6 +2053,103 @@
      "sundu": 80000,
      "shinkafi": 74000,
      "tsafe": 74000
+    },
+    "2026-03-02": {
+     "makarfi": 75000,
+     "giwa": 85000,
+     "anchau": 70000,
+     "dandume": 75000,
+     "dawanau": 82000,
+     "sundu": 68000,
+     "shinkafi": 73000,
+     "tsafe": 73000,
+     "birningwari": 64000
+    },
+    "2026-03-09": {
+     "soba": 74000,
+     "makarfi": 75000,
+     "giwa": 76000,
+     "anchau": 70000,
+     "dandume": 70000,
+     "dawanau": 80000,
+     "sundu": 74000,
+     "shinkafi": 73000,
+     "tsafe": 73000,
+     "birningwari": 68000
+    },
+    "2026-03-16": {
+     "soba": 74000,
+     "makarfi": 75000,
+     "giwa": 76000,
+     "anchau": 70000,
+     "dandume": 70000,
+     "dawanau": 80000,
+     "sundu": 74000,
+     "shinkafi": 73000,
+     "tsafe": 73000,
+     "birningwari": 68000
+    },
+    "2026-03-23": {
+     "makarfi": 78000,
+     "giwa": 76000,
+     "anchau": 72000,
+     "dandume": 74000,
+     "dawanau": 84000,
+     "sundu": 70000,
+     "shinkafi": 70000,
+     "tsafe": 70000,
+     "birningwari": 73000,
+     "minna": 80000,
+     "bida": 75000,
+     "lemu": 73000,
+     "bodija": 95000,
+     "omiadio": 98000,
+     "biu": 92000,
+     "muna": 66000,
+     "bulabulin": 66000,
+     "bagaroad": 67000,
+     "monday": 60000,
+     "sunday": 60000,
+     "orieugba": 78000,
+     "umuahia": 78000,
+     "onuimo": 80000,
+     "bayelsa": 100000,
+     "creekroad": 90000
+    },
+    "2026-04-07": {
+     "makarfi": 76000,
+     "dandume": 74000,
+     "dawanau": 84000,
+     "tsafe": 70000,
+     "bida": 72000,
+     "bodija": 90000,
+     "monday": 71000,
+     "sunday": 65000,
+     "umuahia": 78000
+    },
+    "2026-04-21": {
+     "makarfi": 76000,
+     "dandume": 74000,
+     "dawanau": 84000,
+     "tsafe": 70000,
+     "bida": 72000,
+     "bodija": 88000,
+     "monday": 71000,
+     "sunday": 66000,
+     "umuahia": 78000,
+     "creekroad": 90000
+    },
+    "2026-04-27": {
+     "makarfi": 80000,
+     "dandume": 69000,
+     "dawanau": 87000,
+     "tsafe": 70000,
+     "bida": 72000,
+     "bodija": 86000,
+     "monday": 70000,
+     "sunday": 65000,
+     "umuahia": 78000,
+     "creekroad": 100000
     }
    }
   },
@@ -1181,6 +2233,103 @@
      "sundu": 65000,
      "shinkafi": 67000,
      "tsafe": 68000
+    },
+    "2026-03-02": {
+     "makarfi": 59000,
+     "giwa": 63000,
+     "anchau": 60000,
+     "dandume": 65000,
+     "dawanau": 70000,
+     "sundu": 65000,
+     "shinkafi": 67000,
+     "tsafe": 60000,
+     "birningwari": 54000
+    },
+    "2026-03-09": {
+     "makarfi": 59000,
+     "giwa": 63000,
+     "anchau": 60000,
+     "dandume": 65000,
+     "dawanau": 70000,
+     "sundu": 65000,
+     "shinkafi": 67000,
+     "tsafe": 60000,
+     "birningwari": 54000
+    },
+    "2026-03-16": {
+     "soba": 65000,
+     "makarfi": 63000,
+     "giwa": 67000,
+     "anchau": 60000,
+     "dandume": 64000,
+     "dawanau": 69000,
+     "sundu": 65000,
+     "shinkafi": 67000,
+     "tsafe": 64000,
+     "birningwari": 59000
+    },
+    "2026-03-23": {
+     "makarfi": 65000,
+     "giwa": 64000,
+     "anchau": 65500,
+     "dandume": 67000,
+     "dawanau": 67500,
+     "sundu": 67000,
+     "shinkafi": 68000,
+     "tsafe": 67000,
+     "birningwari": 62000,
+     "minna": 64000,
+     "bida": 60000,
+     "lemu": 59000,
+     "bodija": 89000,
+     "omiadio": 92000,
+     "biu": 75000,
+     "muna": 91000,
+     "bulabulin": 91000,
+     "bagaroad": 91000,
+     "monday": 93000,
+     "sunday": 90000,
+     "orieugba": 103000,
+     "umuahia": 102000,
+     "onuimo": 103800,
+     "bayelsa": 85000,
+     "creekroad": 95000
+    },
+    "2026-04-07": {
+     "makarfi": 65000,
+     "dandume": 67000,
+     "dawanau": 67500,
+     "tsafe": 67000,
+     "bida": 60000,
+     "bodija": 89000,
+     "monday": 93000,
+     "sunday": 90000,
+     "umuahia": 102000,
+     "creekroad": 95000
+    },
+    "2026-04-21": {
+     "makarfi": 65000,
+     "dandume": 67000,
+     "dawanau": 67500,
+     "tsafe": 67000,
+     "bida": 60000,
+     "bodija": 85000,
+     "monday": 93000,
+     "sunday": 90000,
+     "umuahia": 102000,
+     "creekroad": 95000
+    },
+    "2026-04-27": {
+     "makarfi": 68000,
+     "dandume": 67500,
+     "dawanau": 69000,
+     "tsafe": 67000,
+     "bida": 60000,
+     "bodija": 83000,
+     "monday": 95000,
+     "sunday": 97000,
+     "umuahia": 102000,
+     "creekroad": 90000
     }
    }
   },
@@ -1266,6 +2415,89 @@
      "shinkafi": 32500,
      "tsafe": 32500,
      "birningwari": 40000
+    },
+    "2026-03-02": {
+     "soba": 41000,
+     "makarfi": 51000,
+     "giwa": 48000,
+     "anchau": 43000,
+     "dandume": 47000,
+     "dawanau": 40600,
+     "sundu": 45000,
+     "shinkafi": 32000,
+     "tsafe": 30000
+    },
+    "2026-03-09": {
+     "makarfi": 50000,
+     "giwa": 48000,
+     "anchau": 48000,
+     "dandume": 46000,
+     "dawanau": 45000,
+     "sundu": 44000,
+     "shinkafi": 37000,
+     "tsafe": 37000,
+     "birningwari": 50000
+    },
+    "2026-03-16": {
+     "makarfi": 50000,
+     "giwa": 48000,
+     "anchau": 48000,
+     "dandume": 46000,
+     "dawanau": 45000,
+     "sundu": 44000,
+     "shinkafi": 37000,
+     "tsafe": 37000,
+     "birningwari": 50000
+    },
+    "2026-03-23": {
+     "makarfi": 52000,
+     "giwa": 49000,
+     "anchau": 48000,
+     "dandume": 49000,
+     "dawanau": 42000,
+     "sundu": 35000,
+     "shinkafi": 34000,
+     "tsafe": 34000,
+     "birningwari": 50000,
+     "minna": 39000,
+     "bida": 37000,
+     "lemu": 37000,
+     "bodija": 65000,
+     "omiadio": 67000,
+     "sunday": 25000,
+     "orieugba": 90000,
+     "umuahia": 88000,
+     "onuimo": 91000
+    },
+    "2026-04-07": {
+     "makarfi": 49000,
+     "dandume": 49000,
+     "dawanau": 48000,
+     "tsafe": 34000,
+     "bida": 40000,
+     "bodija": 65000,
+     "sunday": 27000,
+     "umuahia": 80000
+    },
+    "2026-04-21": {
+     "makarfi": 52000,
+     "dandume": 49000,
+     "dawanau": 42000,
+     "tsafe": 35000,
+     "bida": 40000,
+     "bodija": 65000,
+     "sunday": 27000,
+     "umuahia": 76300
+    },
+    "2026-04-27": {
+     "makarfi": 35000,
+     "dandume": 48000,
+     "dawanau": 50000,
+     "tsafe": 38000,
+     "bida": 40000,
+     "bodija": 60000,
+     "sunday": 36000,
+     "umuahia": 75000
     }
    }
   },
@@ -1362,6 +2594,103 @@
      "shinkafi": 140000,
      "tsafe": 146000,
      "birningwari": 155000
+    },
+    "2026-03-02": {
+     "soba": 140000,
+     "makarfi": 165000,
+     "giwa": 162000,
+     "anchau": 155000,
+     "dandume": 162000,
+     "dawanau": 157000,
+     "sundu": 160000,
+     "shinkafi": 146000,
+     "tsafe": 143000,
+     "birningwari": 122000
+    },
+    "2026-03-09": {
+     "makarfi": 155000,
+     "giwa": 162000,
+     "anchau": 140000,
+     "dandume": 162000,
+     "dawanau": 152000,
+     "sundu": 160000,
+     "shinkafi": 146000,
+     "tsafe": 160000,
+     "birningwari": 130000
+    },
+    "2026-03-16": {
+     "makarfi": 155000,
+     "giwa": 162000,
+     "anchau": 140000,
+     "dandume": 162000,
+     "dawanau": 152000,
+     "sundu": 160000,
+     "shinkafi": 146000,
+     "tsafe": 160000,
+     "birningwari": 130000
+    },
+    "2026-03-23": {
+     "makarfi": 158000,
+     "giwa": 164000,
+     "anchau": 141000,
+     "dandume": 145000,
+     "dawanau": 162000,
+     "sundu": 147000,
+     "shinkafi": 146000,
+     "tsafe": 147000,
+     "birningwari": 125000,
+     "minna": 79000,
+     "bida": 76000,
+     "lemu": 75000,
+     "bodija": 132000,
+     "omiadio": 135000,
+     "biu": 120000,
+     "muna": 125000,
+     "bulabulin": 127000,
+     "bagaroad": 127000,
+     "monday": 129000,
+     "sunday": 80000,
+     "orieugba": 138000,
+     "umuahia": 136000,
+     "onuimo": 141000,
+     "bayelsa": 220000,
+     "creekroad": 155000
+    },
+    "2026-04-07": {
+     "makarfi": 158000,
+     "dandume": 145000,
+     "dawanau": 162000,
+     "tsafe": 147000,
+     "bida": 81000,
+     "bodija": 138000,
+     "monday": 129000,
+     "sunday": 80000,
+     "umuahia": 130000,
+     "creekroad": 155000
+    },
+    "2026-04-21": {
+     "makarfi": 158000,
+     "dandume": 145000,
+     "dawanau": 162000,
+     "tsafe": 147000,
+     "bida": 81000,
+     "bodija": 137000,
+     "monday": 129000,
+     "sunday": 80000,
+     "umuahia": 129000,
+     "creekroad": 155000
+    },
+    "2026-04-27": {
+     "makarfi": 160000,
+     "dandume": 144000,
+     "dawanau": 150000,
+     "tsafe": 147000,
+     "bida": 81000,
+     "bodija": 135000,
+     "monday": 129000,
+     "sunday": 135000,
+     "umuahia": 127000,
+     "creekroad": 150000
     }
    }
   },
@@ -1447,6 +2776,85 @@
      "shinkafi": 27500,
      "tsafe": 27500,
      "birningwari": 30000
+    },
+    "2026-03-02": {
+     "soba": 26000,
+     "makarfi": 25000,
+     "giwa": 26500,
+     "anchau": 30000,
+     "dandume": 27000,
+     "dawanau": 27000,
+     "sundu": 23000,
+     "shinkafi": 25000,
+     "tsafe": 26000,
+     "birningwari": 29000
+    },
+    "2026-03-09": {
+     "soba": 26000,
+     "makarfi": 25000,
+     "giwa": 26500,
+     "anchau": 30000,
+     "dandume": 27000,
+     "dawanau": 27000,
+     "sundu": 23000,
+     "shinkafi": 25000,
+     "tsafe": 26000,
+     "birningwari": 29000
+    },
+    "2026-03-16": {
+     "soba": 28000,
+     "makarfi": 25000,
+     "giwa": 27000,
+     "anchau": 26500,
+     "dandume": 27000,
+     "dawanau": 27000,
+     "sundu": 24000,
+     "shinkafi": 25000,
+     "tsafe": 26000,
+     "birningwari": 27500
+    },
+    "2026-03-23": {
+     "makarfi": 24000,
+     "giwa": 26500,
+     "anchau": 25000,
+     "dandume": 27000,
+     "dawanau": 31000,
+     "sundu": 24000,
+     "shinkafi": 23000,
+     "tsafe": 22500,
+     "minna": 18000,
+     "bida": 17000,
+     "lemu": 17000,
+     "bodija": 8000,
+     "omiadio": 6500,
+     "orieugba": 15000,
+     "umuahia": 14000,
+     "onuimo": 15500
+    },
+    "2026-04-07": {
+     "makarfi": 24000,
+     "dandume": 27000,
+     "dawanau": 31000,
+     "tsafe": 22500,
+     "bida": 19000,
+     "umuahia": 17000
+    },
+    "2026-04-21": {
+     "makarfi": 24000,
+     "dandume": 27000,
+     "dawanau": 31000,
+     "tsafe": 22500,
+     "bida": 19000,
+     "umuahia": 17000
+    },
+    "2026-04-27": {
+     "makarfi": 24000,
+     "dandume": 23000,
+     "dawanau": 25800,
+     "tsafe": 23000,
+     "bida": 19000,
+     "bodija": 16000,
+     "umuahia": 18500
     }
    }
   },
@@ -1532,6 +2940,97 @@
      "shinkafi": 30000,
      "tsafe": 30000,
      "birningwari": 30000
+    },
+    "2026-03-02": {
+     "soba": 30000,
+     "makarfi": 29000,
+     "giwa": 30000,
+     "anchau": 28000,
+     "dandume": 28000,
+     "dawanau": 26000,
+     "sundu": 27000,
+     "shinkafi": 29000,
+     "tsafe": 28000,
+     "birningwari": 29000
+    },
+    "2026-03-09": {
+     "soba": 30000,
+     "makarfi": 29000,
+     "giwa": 30000,
+     "anchau": 28000,
+     "dandume": 28000,
+     "dawanau": 26000,
+     "sundu": 27000,
+     "shinkafi": 29000,
+     "tsafe": 28000,
+     "birningwari": 29000
+    },
+    "2026-03-16": {
+     "soba": 30000,
+     "makarfi": 29000,
+     "giwa": 28000,
+     "anchau": 27000,
+     "dandume": 28000,
+     "dawanau": 27000,
+     "sundu": 24000,
+     "shinkafi": 25000,
+     "tsafe": 26000,
+     "birningwari": 27500
+    },
+    "2026-03-23": {
+     "makarfi": 30000,
+     "giwa": 28500,
+     "anchau": 28500,
+     "dandume": 28000,
+     "dawanau": 30000,
+     "sundu": 29500,
+     "shinkafi": 29000,
+     "tsafe": 29000,
+     "minna": 15000,
+     "bida": 14000,
+     "lemu": 13000,
+     "bodija": 18000,
+     "omiadio": 15000,
+     "muna": 39000,
+     "bulabulin": 38500,
+     "bagaroad": 39000,
+     "monday": 39000,
+     "orieugba": 55000,
+     "umuahia": 54000,
+     "onuimo": 54000,
+     "bayelsa": 55000,
+     "creekroad": 51000
+    },
+    "2026-04-07": {
+     "makarfi": 30000,
+     "dandume": 28000,
+     "dawanau": 30000,
+     "tsafe": 29000,
+     "bida": 14000,
+     "bodija": 17500,
+     "umuahia": 27000,
+     "creekroad": 51000
+    },
+    "2026-04-21": {
+     "makarfi": 30000,
+     "dandume": 28000,
+     "dawanau": 30000,
+     "tsafe": 29000,
+     "bida": 14000,
+     "bodija": 17500,
+     "umuahia": 27000,
+     "creekroad": 51000
+    },
+    "2026-04-27": {
+     "makarfi": 26000,
+     "dandume": 26500,
+     "dawanau": 26600,
+     "tsafe": 28000,
+     "bida": 14000,
+     "bodija": 12000,
+     "monday": 39000,
+     "umuahia": 26000,
+     "creekroad": 50000
     }
    }
   },
@@ -1624,6 +3123,67 @@
      "shinkafi": 205000,
      "tsafe": 205000,
      "birningwari": 220000
+    },
+    "2026-03-02": {
+     "soba": 200000,
+     "makarfi": 202000,
+     "giwa": 201000,
+     "anchau": 204000,
+     "dandume": 204000,
+     "dawanau": 201000,
+     "sundu": 202200,
+     "shinkafi": 205000,
+     "tsafe": 205000,
+     "birningwari": 220000
+    },
+    "2026-03-09": {
+     "soba": 200000,
+     "makarfi": 202000,
+     "giwa": 201000,
+     "anchau": 204000,
+     "dandume": 204000,
+     "dawanau": 201000,
+     "sundu": 202200,
+     "shinkafi": 205000,
+     "tsafe": 205000,
+     "birningwari": 220000
+    },
+    "2026-03-16": {
+     "soba": 200000,
+     "makarfi": 202000,
+     "giwa": 201000,
+     "anchau": 204000,
+     "dandume": 204000,
+     "dawanau": 201000,
+     "sundu": 202000,
+     "shinkafi": 205000,
+     "tsafe": 205000,
+     "birningwari": 220000
+    },
+    "2026-03-23": {
+     "minna": 52000,
+     "bida": 52000,
+     "lemu": 51000,
+     "bodija": 245000,
+     "omiadio": 240000,
+     "orieugba": 231000,
+     "umuahia": 225000,
+     "onuimo": 233000
+    },
+    "2026-04-07": {
+     "bida": 52000,
+     "monday": 39000,
+     "umuahia": 225000
+    },
+    "2026-04-21": {
+     "bida": 52000,
+     "bodija": 240000,
+     "umuahia": 220000
+    },
+    "2026-04-27": {
+     "bida": 52000,
+     "bodija": 220000,
+     "umuahia": 182000
     }
    }
   }
