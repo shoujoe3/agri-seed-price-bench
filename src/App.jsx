@@ -129,16 +129,24 @@ export default function App() {
   });
 
   const country = COUNTRIES[countryId];
-  const crop = CROPS[cropId];
+  const baseCrop = CROPS[cropId];
+  /* apply data-estimated seasonal amplitude & harvest month when calibration is loaded */
+  const cropCal = calib && calib.crops && calib.crops[cropId];
+  const crop = cropCal ? { ...baseCrop, sAmp: cropCal.sAmp, harv: cropCal.harv } : baseCrop;
 
   /* ---- observed dataset: Nigeria extension-service weekly survey (public/data) ---- */
   const [survey, setSurvey] = useState(null);
+  const [calib, setCalib] = useState(null);
   useEffect(() => {
     const base = (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.BASE_URL) || "/";
     fetch(`${base}data/ng-extension-prices.json`)
       .then((res) => (res.ok ? res.json() : null))
       .then((d) => d && d.series && setSurvey(d))
-      .catch(() => {});                      // no file / offline -> illustrative mode
+      .catch(() => {});
+    fetch(`${base}data/ng-calibration.json`)
+      .then((res) => (res.ok ? res.json() : null))
+      .then((c) => c && c.crops && setCalib(c))
+      .catch(() => {});          // no calibration -> literature defaults
   }, []);
 
   /* market list: for Nigeria, append the surveyed markets to the built-in ones */
@@ -155,6 +163,9 @@ export default function App() {
   const mkt = marketArr[Math.min(mktIdx, marketArr.length - 1)];
   const remoteness = mkt[1];
   const mktKey = mkt[2];
+
+  /* data-estimated market basis (panel mean = 1.00) for this crop+market, if available */
+  const basis = (calib && calib.basis && calib.basis[cropId] && mktKey && calib.basis[cropId][mktKey]) || null;
 
   /* anchored price: use the LATEST survey observation for this crop at this market */
   const obsRec = (mktKey && survey && survey.series[cropId]) || null;
@@ -204,12 +215,16 @@ export default function App() {
         { label:"Economic factors", mlt:r.mEcon,  val:crop.base*r.mHist*r.mEcon },
         { label:"Weather / yield",  mlt:r.mWx,    val:crop.base*r.mHist*r.mEcon*r.mWx },
         { label:"Seasonality",      mlt:r.mSea,   val:r.core },
-        { label:"Transport margin", mlt:r.mTrans, val:r.final },
+        basis
+          ? { label:"Market basis (est.)", mlt:basis, val:r.core*basis }
+          : { label:"Transport margin", mlt:r.mTrans, val:r.final },
       ];
   const wfMax = Math.max(...steps.map((s) => s.val)) * 1.02;
 
-  /* scale converts model output to anchored output (base cancels in the ratio) */
+  /* scale converts model output to anchored output (base cancels in the ratio).
+     In non-anchored mode with an estimated basis, price = core × basis (basis replaces the crude wedge). */
   const scale = anchored ? obsUsdT / rf.final : 1;
+  const priceOf = (pr) => anchored ? pr.final * scale : (basis ? pr.core * basis : pr.final);
 
   /* sensitivity sweep */
   const fdef = SLIDERS.find((s) => s.key === focus);
@@ -218,11 +233,11 @@ export default function App() {
     for (let i = 0; i <= N; i++) {
       const v = fdef.min + ((fdef.max - fdef.min) * i) / N;
       const pr = computePrice(crop, remoteness, { ...p, [focus]: v });
-      out.push({ x: v, price: Math.round(pr.final * scale) });
+      out.push({ x: v, price: Math.round(priceOf(pr)) });
     }
     return out;
-  }, [crop, remoteness, p, focus, fdef, scale]);
-  const curPrice = Math.round(r.final * scale);
+  }, [crop, remoteness, p, focus, fdef, scale, basis, anchored]);
+  const curPrice = Math.round(priceOf(r));
 
   /* ---- unit-aware display (per tonne / per kg) ---- */
   const div = unit === "kg" ? 1000 : 1;
@@ -274,13 +289,17 @@ export default function App() {
             </div>
 
             <label className="flabel">Market · <span className="dim">remoteness from port</span></label>
-            <div className="mkts">
-              {marketArr.map(([nm,rm,key],i)=>(
-                <button key={nm} className={mktIdx===i?"mkt on":"mkt"} onClick={()=>setMktIdx(i)}>
-                  <span>{nm}{key && <em className="stag">survey</em>}</span>
-                  <span className="rmbar"><span style={{width:`${rm*100}%`}} /></span>
-                </button>
-              ))}
+            <div className="mktpick">
+              <select className="mktsel" value={mktIdx}
+                onChange={(e)=>setMktIdx(parseInt(e.target.value,10))}>
+                {marketArr.map(([nm,rm,key],i)=>(
+                  <option key={nm} value={i}>{nm}{key?"  · survey":""}</option>
+                ))}
+              </select>
+              <div className="mktmeta">
+                <span className="rmbar"><span style={{width:`${remoteness*100}%`}} /></span>
+                <span className="rmval">{Math.round(remoteness*100)}% from port{mktKey ? " · survey market" : ""}</span>
+              </div>
             </div>
 
             <label className="flabel">Grain / seed</label>
@@ -311,7 +330,9 @@ export default function App() {
                   ))}
                 </div>
               </div>
-              <div className="ro-price">{money(curPrice)}<span className="ro-unit">{unitLbl}</span></div>
+              <div className="ro-price">{money(curPrice)}<span className="ro-unit">{unitLbl}</span>
+                {cropCal && <span className="calbadge" title="Seasonal amplitude and harvest month fitted to the Nigeria extension panel">calibrated</span>}
+              </div>
               <div className="ro-local">
                 ≈ {local(curPrice)} {unitLbl}
                 <span className="ro-band">typical monthly range {local(curPrice*(1-band))} – {local(curPrice*(1+band))}</span>
@@ -319,7 +340,12 @@ export default function App() {
               {anchored && (
                 <div className="anchor">
                   <span className="adot"/> Anchored to extension survey · {obsRec.label} · {country.cur}{fmt0(obsNGN)}/{obsRec.unitKg}kg bag · latest of {obsSeries.length} weekly observations ({fmtD(obsSeries[0].date)} → {fmtD(anchorDate)}).
-                  Sliders read as <b>change since {fmtD(anchorDate)}</b>.
+                  Sliders read as <b>change since {fmtD(anchorDate)}</b>.{basis && <> Market runs <b>{basis.toFixed(2)}×</b> the panel average for this crop.</>}
+                </div>
+              )}
+              {!anchored && basis && (
+                <div className="anchor">
+                  <span className="adot"/> Using data-estimated market basis: this market prices at <b>{basis.toFixed(2)}×</b> the panel average for {crop.name.toLowerCase()} (from 25 weeks of survey data), replacing the generic transport wedge.
                 </div>
               )}
             </div>
@@ -496,8 +522,22 @@ function Methodology() {
         so you can see exactly where the money enters. The <b>sensitivity chart</b> sweeps one chosen driver across its full range while holding the others fixed, tracing the price response curve and marking your current setting.
         The country/market picker changes both the currency shown and the transport remoteness; the region toggle swaps the crop set and base prices.
       </p>
+      <h3>Calibration from observed data (Nigeria)</h3>
+      <p>
+        For the five West-African crops, the seasonal amplitude, harvest month and per-market basis are no longer literature defaults —
+        they are <b>estimated from 25 weeks of extension-survey observations</b> (Dec 2025 – Jul 2026) by decomposing each log price into a
+        calendar-month effect (seasonality) and a market effect (spatial basis) via iterative two-way means on an unbalanced panel.
+        The seasonal amplitude is half the peak-to-trough of the fitted monthly effect; the basis is exp(market effect), normalised so the
+        panel average is 1.00. Estimated amplitudes (cowpea ±17%, maize ±16%, millet ±13%, rice ±10%, sorghum ±9%) run somewhat below the
+        textbook Sahel figures, and every crop’s fitted trough lands in the Dec–Jan harvest window — a check that the decomposition recovered
+        real agronomy rather than noise. The market basis quantifies the north–south spread directly (southern markets such as Umuahia and
+        Orie Ugba price at 1.5–2.9× the panel), so in non-anchored mode this estimated basis replaces the generic transport wedge, and in
+        anchored mode it is reported alongside the surveyed price (already embedded in it). A “calibrated” tag appears on the price when these
+        fitted parameters are in use.
+      </p>
+
       <div className="callout">
-        <b>Honesty note.</b> This is a stylised teaching engine. The elasticities are plausible values chosen within the ranges reported across the References, not estimates fitted to any one market’s data, and the base prices are indicative. Use it to build intuition about <i>how</i> drivers combine — not to forecast a real quote.
+        <b>Honesty note.</b> The economic and weather elasticities remain plausible literature values, not fitted coefficients. What is now data-driven is the seasonal shape and the spatial basis for the five Nigerian crops. Confidence in the underlying survey figures is medium — several weeks were OCR-read from scans. Use it to build intuition about <i>how</i> drivers combine, and to see real seasonal and spatial structure — not to forecast a precise quote.
       </div>
     </div>
   );
@@ -590,11 +630,16 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spa
 .chip.on{border-color:var(--grain);background:rgba(224,167,44,.14);color:var(--grain2)}
 .chip:hover:not(.on){border-color:var(--line2)}
 
-.mkts{display:flex;flex-direction:column;gap:6px}
-.mkt{display:flex;flex-direction:column;gap:5px;background:var(--soil);border:1px solid var(--line);border-radius:9px;padding:8px 10px;cursor:pointer;text-align:left;color:var(--bone);font:500 12.5px 'Inter'}
-.mkt.on{border-color:var(--grain)}
-.rmbar{height:4px;background:rgba(236,231,214,.10);border-radius:3px;overflow:hidden}
-.rmbar>span{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--brick))}
+.mktpick{display:flex;flex-direction:column;gap:8px}
+.mktsel{width:100%;background:var(--soil);color:var(--bone);border:1px solid var(--line);border-radius:9px;padding:9px 10px;font:500 13px 'Inter';cursor:pointer;appearance:none;-webkit-appearance:none;
+  background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);
+  background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.mktsel:hover{border-color:var(--line2)}
+.mktsel:focus-visible{outline:none;border-color:var(--grain)}
+.mktmeta{display:flex;align-items:center;gap:9px;padding:0 2px}
+.mktmeta .rmbar{flex:1;height:5px;background:rgba(236,231,214,.10);border-radius:3px;overflow:hidden}
+.mktmeta .rmbar>span{display:block;height:100%;background:linear-gradient(90deg,var(--sage),var(--brick))}
+.rmval{font:500 10.5px 'IBM Plex Mono';color:var(--dim);white-space:nowrap}
 
 .cropgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .cropb{display:flex;align-items:center;gap:7px;background:var(--soil);border:1px solid var(--line);border-radius:9px;padding:8px;cursor:pointer;color:var(--bone);font:500 12px 'Inter';text-align:left}
@@ -620,6 +665,7 @@ h1,h2,h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;letter-spa
 .ro-band{color:var(--dim);font-size:12px}
 .anchor{margin-top:12px;padding:9px 12px;background:rgba(143,176,122,.10);border:1px solid rgba(143,176,122,.35);border-radius:9px;font:500 12px 'Inter';color:#C9D8BC;line-height:1.5}
 .anchor b{color:var(--sage)}
+.calbadge{display:inline-block;vertical-align:middle;margin-left:12px;font:600 10px 'Inter';text-transform:uppercase;letter-spacing:.07em;color:var(--rain);border:1px solid rgba(127,166,196,.45);border-radius:5px;padding:2px 7px}
 .adot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sage);margin-right:7px;box-shadow:0 0 6px var(--sage)}
 .stag{font:600 9px 'Inter';font-style:normal;text-transform:uppercase;letter-spacing:.06em;color:var(--sage);border:1px solid rgba(143,176,122,.4);border-radius:4px;padding:1px 4px;margin-left:6px;vertical-align:middle}
 
