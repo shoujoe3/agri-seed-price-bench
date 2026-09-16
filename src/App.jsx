@@ -128,13 +128,7 @@ export default function App() {
     hist:.05, fx:.15, inf:.12, dem:1.0, rain:0, temp:.5, fuel:1.0, month:6,
   });
 
-  const country = COUNTRIES[countryId];
-  const baseCrop = CROPS[cropId];
-  /* apply data-estimated seasonal amplitude & harvest month when calibration is loaded */
-  const cropCal = calib && calib.crops && calib.crops[cropId];
-  const crop = cropCal ? { ...baseCrop, sAmp: cropCal.sAmp, harv: cropCal.harv } : baseCrop;
-
-  /* ---- observed dataset: Nigeria extension-service weekly survey (public/data) ---- */
+  /* ---- observed dataset + calibration: Nigeria extension-service data (public/data) ---- */
   const [survey, setSurvey] = useState(null);
   const [calib, setCalib] = useState(null);
   useEffect(() => {
@@ -148,6 +142,12 @@ export default function App() {
       .then((c) => c && c.crops && setCalib(c))
       .catch(() => {});          // no calibration -> literature defaults
   }, []);
+
+  const country = COUNTRIES[countryId];
+  const baseCrop = CROPS[cropId];
+  /* apply data-estimated seasonal amplitude & harvest month when calibration is loaded */
+  const cropCal = calib && calib.crops && calib.crops[cropId];
+  const crop = cropCal ? { ...baseCrop, sAmp: cropCal.sAmp, harv: cropCal.harv } : baseCrop;
 
   /* market list: for Nigeria, append the surveyed markets to the built-in ones */
   const marketArr = useMemo(() => {
