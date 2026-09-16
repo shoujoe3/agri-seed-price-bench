@@ -28,9 +28,11 @@
    "2026-06-15",
    "2026-07-13",
    "2026-07-20",
-   "2026-07-27"
+   "2026-07-27",
+   "2026-08-03",
+   "2026-09-07"
   ],
-  "note": "Prices per bag as recorded at each market. 22 Dec values transcribed from photos (medium confidence); weekly values machine-extracted from the .docx reports (high confidence). The simulator anchors to the most recent observation for the selected crop and market. Mar–Apr 2026 values transcribed from scanned PDF reports (typed tables, medium-high confidence). The '4th week February' report (published 02/03/26) is dated 2026-03-02. The 4th-week-March file prints 07/04/26 in its header; the filename date 23/03/26 is used. From 07/04/26 the survey runs a condensed 10-market national panel; markets dropped from the panel retain their last observation as anchor. May–Jun 2026 (4 May, 18 May, 25 May, 15 Jun) transcribed from scanned PDFs; the 11 May and 8 Jun reports were not available for this batch (gaps left in series, markets anchor to last observation). Added 11 May, 1 Jun, 8 Jun, 13 Jul, 20 Jul, 27 Jul 2026 via OCR of scanned reports (450dpi, cross-read; confidence medium — verify against originals). 8 Jun page-2 (rice/beans) and some soyabean cells were not cleanly legible and are left as gaps."
+  "note": "Prices per bag as recorded at each market. 22 Dec values transcribed from photos (medium confidence); weekly values machine-extracted from the .docx reports (high confidence). The simulator anchors to the most recent observation for the selected crop and market. Mar–Apr 2026 values transcribed from scanned PDF reports (typed tables, medium-high confidence). The '4th week February' report (published 02/03/26) is dated 2026-03-02. The 4th-week-March file prints 07/04/26 in its header; the filename date 23/03/26 is used. From 07/04/26 the survey runs a condensed 10-market national panel; markets dropped from the panel retain their last observation as anchor. May–Jun 2026 (4 May, 18 May, 25 May, 15 Jun) transcribed from scanned PDFs; the 11 May and 8 Jun reports were not available for this batch (gaps left in series, markets anchor to last observation). Added 11 May, 1 Jun, 8 Jun, 13 Jul, 20 Jul, 27 Jul 2026 via OCR of scanned reports (450dpi, cross-read; confidence medium — verify against originals). 8 Jun page-2 (rice/beans) and some soyabean cells were not cleanly legible and are left as gaps. Added 3 Aug (no millet/rice tables in that report) and 7 Sep 2026 via OCR of scanned reports (typed, high legibility) Sep 7 beans (white & brown) supplied directly by the user."
  },
  "markets": {
   "soba": {
@@ -474,6 +476,30 @@
      "sunday": 35000,
      "umuahia": 62000,
      "creekroad": 55000
+    },
+    "2026-08-03": {
+     "makarfi": 30000,
+     "dandume": 30000,
+     "dawanau": 31000,
+     "tsafe": 31000,
+     "bida": 36000,
+     "bodija": 40500,
+     "monday": 36000,
+     "sunday": 35000,
+     "umuahia": 63000,
+     "creekroad": 55000
+    },
+    "2026-09-07": {
+     "makarfi": 31000,
+     "dandume": 31000,
+     "dawanau": 34000,
+     "tsafe": 34000,
+     "bida": 36000,
+     "bodija": 38000,
+     "monday": 36000,
+     "sunday": 32000,
+     "umuahia": 64000,
+     "creekroad": 55000
     }
    }
   },
@@ -746,6 +772,17 @@
      "tsafe": 34000,
      "bida": 31000,
      "bodija": 51000,
+     "monday": 60000,
+     "sunday": 38000,
+     "creekroad": 60000
+    },
+    "2026-09-07": {
+     "makarfi": 38000,
+     "dandume": 35000,
+     "dawanau": 37000,
+     "tsafe": 35000,
+     "bida": 31000,
+     "bodija": 50000,
      "monday": 60000,
      "sunday": 38000,
      "creekroad": 60000
@@ -1051,6 +1088,28 @@
      "monday": 38000,
      "sunday": 25000,
      "umuahia": 90000
+    },
+    "2026-08-03": {
+     "makarfi": 35000,
+     "dandume": 35000,
+     "dawanau": 38000,
+     "tsafe": 34000,
+     "bida": 37000,
+     "bodija": 37000,
+     "monday": 38000,
+     "sunday": 22000,
+     "umuahia": 88000
+    },
+    "2026-09-07": {
+     "makarfi": 35000,
+     "dandume": 36000,
+     "dawanau": 36000,
+     "tsafe": 35000,
+     "bida": 37000,
+     "bodija": 37500,
+     "monday": 38000,
+     "sunday": 25000,
+     "umuahia": 88000
     }
    }
   },
@@ -1358,6 +1417,18 @@
      "monday": 42000,
      "sunday": 40000,
      "umuahia": 93000
+    },
+    "2026-09-07": {
+     "makarfi": 50000,
+     "dandume": 45000,
+     "dawanau": 50000,
+     "tsafe": 49500,
+     "bida": 33000,
+     "bodija": 60000,
+     "monday": 47000,
+     "sunday": 42000,
+     "umuahia": 91000,
+     "creekroad": 96000
     }
    }
   },
@@ -1654,6 +1725,30 @@
      "sunday": 75000,
      "umuahia": 95000,
      "creekroad": 100000
+    },
+    "2026-08-03": {
+     "makarfi": 105000,
+     "dandume": 110000,
+     "dawanau": 105000,
+     "tsafe": 90000,
+     "bida": 101000,
+     "bodija": 104000,
+     "monday": 115000,
+     "sunday": 95000,
+     "umuahia": 93000,
+     "creekroad": 100000
+    },
+    "2026-09-07": {
+     "makarfi": 100000,
+     "dandume": 108000,
+     "dawanau": 110000,
+     "tsafe": 90000,
+     "bida": 101000,
+     "bodija": 125000,
+     "monday": 115000,
+     "sunday": 116000,
+     "umuahia": 90000,
+     "creekroad": 100000
     }
    }
   }
@@ -1915,6 +2010,27 @@
      "sunday": 57000,
      "umuahia": 86000,
      "creekroad": 85000
+    },
+    "2026-08-03": {
+     "makarfi": 80000,
+     "dandume": 85000,
+     "dawanau": 78000,
+     "tsafe": 75000,
+     "bodija": 75000,
+     "monday": 73000,
+     "sunday": 55000,
+     "creekroad": 85000
+    },
+    "2026-09-07": {
+     "makarfi": 93000,
+     "dandume": 88000,
+     "dawanau": 82000,
+     "tsafe": 77000,
+     "bida": 72000,
+     "bodija": 58000,
+     "monday": 73000,
+     "sunday": 50000,
+     "umuahia": 90000
     }
    }
   },
@@ -2206,6 +2322,28 @@
      "bodija": 41000,
      "sunday": 35000,
      "umuahia": 65000,
+     "creekroad": 47000
+    },
+    "2026-08-03": {
+     "makarfi": 32000,
+     "dandume": 32000,
+     "dawanau": 32000,
+     "tsafe": 32000,
+     "bida": 40000,
+     "bodija": 42000,
+     "sunday": 35000,
+     "umuahia": 65000,
+     "creekroad": 47000
+    },
+    "2026-09-07": {
+     "makarfi": 35000,
+     "dandume": 34000,
+     "dawanau": 37000,
+     "tsafe": 36000,
+     "bida": 40000,
+     "bodija": 39000,
+     "sunday": 32000,
+     "umuahia": 64000,
      "creekroad": 47000
     }
    }
@@ -2503,6 +2641,28 @@
      "tsafe": 31000,
      "bida": 39000,
      "bodija": 39000,
+     "monday": 36000,
+     "sunday": 25000,
+     "umuahia": 88000
+    },
+    "2026-08-03": {
+     "makarfi": 33000,
+     "dandume": 32000,
+     "dawanau": 37000,
+     "tsafe": 31000,
+     "bida": 39000,
+     "bodija": 39000,
+     "monday": 36000,
+     "sunday": 25000,
+     "umuahia": 88000
+    },
+    "2026-09-07": {
+     "makarfi": 31000,
+     "dandume": 34000,
+     "dawanau": 34000,
+     "tsafe": 32000,
+     "bida": 39000,
+     "bodija": 36000,
      "monday": 36000,
      "sunday": 25000,
      "umuahia": 88000
@@ -2927,6 +3087,17 @@
      "sunday": 115000,
      "umuahia": 72000,
      "creekroad": 60000
+    },
+    "2026-09-07": {
+     "makarfi": 125000,
+     "dandume": 115000,
+     "dawanau": 120000,
+     "tsafe": 125000,
+     "bida": 90000,
+     "bodija": 115000,
+     "monday": 88000,
+     "sunday": 110000,
+     "umuahia": 87000
     }
    }
   },
@@ -3211,6 +3382,30 @@
      "sunday": 75000,
      "umuahia": 91000,
      "creekroad": 100000
+    },
+    "2026-08-03": {
+     "makarfi": 100000,
+     "dandume": 100000,
+     "dawanau": 100000,
+     "tsafe": 80000,
+     "bida": 91000,
+     "bodija": 97000,
+     "monday": 126000,
+     "sunday": 85000,
+     "umuahia": 89000,
+     "creekroad": 100000
+    },
+    "2026-09-07": {
+     "makarfi": 95000,
+     "dandume": 100000,
+     "dawanau": 102000,
+     "tsafe": 82000,
+     "bida": 91000,
+     "bodija": 120000,
+     "monday": 122000,
+     "sunday": 85000,
+     "umuahia": 107000,
+     "creekroad": 100000
     }
    }
   },
@@ -3478,6 +3673,18 @@
      "sunday": 70000,
      "umuahia": 90000,
      "creekroad": 85000
+    },
+    "2026-08-03": {
+     "makarfi": 69000,
+     "dandume": 73000,
+     "dawanau": 75000,
+     "tsafe": 75000,
+     "bida": 83000,
+     "bodija": 88000,
+     "monday": 86000,
+     "sunday": 75000,
+     "umuahia": 91000,
+     "creekroad": 103000
     }
    }
   },
@@ -3686,6 +3893,14 @@
      "bodija": 55000,
      "sunday": 36000,
      "umuahia": 71000
+    },
+    "2026-08-03": {
+     "makarfi": 60000,
+     "dandume": 54000,
+     "dawanau": 56000,
+     "tsafe": 51000,
+     "bida": 46000,
+     "bodija": 55000
     }
    }
   },
@@ -3926,6 +4141,15 @@
      "sunday": 130000,
      "umuahia": 125000,
      "creekroad": 155000
+    },
+    "2026-08-03": {
+     "makarfi": 160000,
+     "dandume": 155000,
+     "dawanau": 156000,
+     "tsafe": 156000,
+     "bida": 96000,
+     "bodija": 145000,
+     "monday": 191000
     }
    }
   },
